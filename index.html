@@ -22,15 +22,7 @@
 
             <img>
 
-            <nav>
-                <div class="personnage position-1"></div>
-                <div class="piquet-1"></div>
-                <div class="piquet-2"></div>
-                <div class="piquet-3"></div>
-                <div id="ligne"></div>
-            </nav>
-
-            <button id="main-button">Appuyer pour démarrer</button>
+            <button><p>Toucher pour commencer</p></button>
 
         </header>
 
@@ -88,6 +80,13 @@
                     <h3 x-text="produit.niveau"></h3>
                     <p>Prix : <span x-text="produit.prix"></span></p>
                     <p><span x-text="produit.nombre"></span> fois</p>
+
+                        <div>
+                            <a @click="nombreProduit(produit, -1)">Enlever</a>
+                            <a @click="nombreProduit(produit, 1)">Ajouter</a>
+                            <a @click="nombreProduit(produit, 2)">Supprimer</a>
+                        </div>
+
                 </article>
             </template>
 

@@ -157,6 +157,55 @@ const borne = () => {
             this.panier = listeProduits;
         },
 
+        nombreProduit(produit, nombre) {
+            console.log(produit);
+            console.log(nombre);
+
+            if (produit.type == "Forfait") {
+                if (nombre != 2){
+                    newProduit = JSON.parse(localStorage.getItem("f_" + produit.niveau));
+
+                    let nombreItem = newProduit.nombre;
+                    newProduit.nombre = nombreItem + nombre;
+
+                    if (newProduit.nombre == 0) {
+                        localStorage.removeItem("f_" + produit.niveau);
+                    }
+                    else {
+                        localStorage.setItem("f_" + produit.niveau, JSON.stringify(newProduit))
+                    }
+                }
+                else {
+                    localStorage.removeItem("f_" + produit.niveau);
+                }
+            }
+
+            if (produit.type == "Cours") {
+                if (nombre != 2){
+                    newProduit = JSON.parse(localStorage.getItem("c_" + produit.niveau + produit.heure));
+
+                    let nombreItem = newProduit.nombre;
+                    newProduit.nombre = nombreItem + nombre;
+
+                    if (newProduit.nombre == 0) {
+                        localStorage.removeItem("c_" + produit.niveau + produit.heure);
+                    }
+                    else {
+                        localStorage.setItem("c_" + produit.niveau + produit.heure, JSON.stringify(newProduit))
+                    }
+                }
+                else {
+                    localStorage.removeItem("c_" + produit.niveau + produit.heure);
+                }
+            }
+
+            if (nombre < 0 && this.nombrePanier > 0) {
+                this.nombrePanier -= 1;
+            }
+
+            this.recupPanier();
+        },
+
         reset() {
             localStorage.clear();
 
