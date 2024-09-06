@@ -20,7 +20,7 @@
 
         <header id="homePage" @click="home = false; pageForfait = true">
 
-            <img>
+            <img src="img/light-text-transparent.png" alt="Logo de la station de ski Le Montagnais">
 
             <button><p>Toucher pour commencer</p></button>
 
@@ -30,20 +30,12 @@
 
     <template x-if="!home">
         <header id="othersPage">
-
-            <img>
+            <img src="img/light-text-transparent.png" alt="Logo de la station de ski Le Montagnais">
         </header>
     </template>
 
     <main x-show="!home">
 
-        <nav>
-            <div class="personnage position-1"></div>
-            <div class="piquet-1"></div>
-            <div class="piquet-2"></div>
-            <div class="piquet-3"></div>
-            <div id="ligne"></div>
-        </nav>
 
         <section x-show="pageForfait" class="list-products">
 

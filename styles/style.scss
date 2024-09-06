@@ -23,6 +23,16 @@ body {
     background-color: #D9EBF2;
     position: relative;
 
+    img {
+        width: 60%;
+        height: auto;
+
+        position: relative;
+        left: 50%;
+        top: 10%;
+        transform: translateX(-50%);
+    }
+
     button {
         position: absolute;
         left: 0;
@@ -94,7 +104,9 @@ body {
     50% {
         top: 4%;
     }
-  }
+}
+
+
 
 
 // // Header et footer

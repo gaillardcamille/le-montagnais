@@ -23,6 +23,14 @@ body {
   background-color: #D9EBF2;
   position: relative;
 }
+#homePage img {
+  width: 60%;
+  height: auto;
+  position: relative;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+}
 #homePage button {
   position: absolute;
   left: 0;
