@@ -88,14 +88,17 @@
     </main>
 
     <footer x-show="!home">
-        <span id="nombrePanier" x-text="nombrePanier"></span>
+
 
         <div>
             <button @click="pageForfait = true, pageCours = false, pagePanier = false">Forfait</button>
             <button @click="pageForfait = false, pageCours = true, pagePanier = false">Cours</button>
         </div>
 
-        <button @click="pagePanier = true, pageCours = false, pageForfait = false">Panier</button>
+
+        <button @click="pagePanier = true, pageCours = false, pageForfait = false">
+            <span id="nombrePanier" x-text="nombrePanier"></span>
+        Panier</button>
     </footer>
 
 

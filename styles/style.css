@@ -14,13 +14,12 @@ body {
 }
 
 body {
-  background-color: #c05454;
+  background-color: #D9EBF2;
 }
 
 #homePage {
   height: 100%;
   width: 100%;
-  background-color: #D9EBF2;
   position: relative;
 }
 #homePage img {
@@ -95,4 +94,29 @@ body {
   50% {
     top: 4%;
   }
+}
+#othersPage {
+  height: 20%;
+  width: 100%;
+}
+#othersPage img {
+  width: auto;
+  height: 80%;
+  position: relative;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+}
+
+footer {
+  height: 15%;
+  width: 100%;
+  background-color: #B2C7CF;
+  border-radius: 25px 25px 0 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+footer button {
+  all: unset;
 }/*# sourceMappingURL=style.css.map */
