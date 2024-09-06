@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="js/alpine.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <title>Le Montagnais</title>
+</head>
+
+<body x-data="borne()">
+
+    <template x-if="home">
+
+        <header id="homePage" @click="home = false; pageForfait = true">
+
+            <img>
+
+            <nav>
+                <div class="personnage position-1"></div>
+                <div class="piquet-1"></div>
+                <div class="piquet-2"></div>
+                <div class="piquet-3"></div>
+                <div id="ligne"></div>
+            </nav>
+
+            <button id="main-button">Appuyer pour démarrer</button>
+
+        </header>
+
+    </template>
+
+    <template x-if="!home">
+        <header id="othersPage">
+
+            <img>
+        </header>
+    </template>
+
+    <main x-show="!home">
+
+        <nav>
+            <div class="personnage position-1"></div>
+            <div class="piquet-1"></div>
+            <div class="piquet-2"></div>
+            <div class="piquet-3"></div>
+            <div id="ligne"></div>
+        </nav>
+
+        <section x-show="pageForfait" class="list-products">
+
+            <template x-for="forfait in forfaits">
+                <article>
+                    <div class="block_product">
+                        <img>
+                        <h3 x-text="forfait.type"></h3>
+                    </div>
+                    <button @click="ajouterPanier(forfait, 0)">Ajouter</button>
+                </article>
+            </template>
+
+        </section>
+
+        <section x-show="pageCours" class="list-products">
+
+            <template x-for="lecon in lecons">
+                <article>
+                    <div class="block_product">
+                        <img>
+                        <h3 x-text="lecon.niveau"></h3>
+                    </div>
+                    <button @click="ajouterPanier(0, lecon)">Ajouter</button>
+                </article>
+            </template>
+
+        </section>
+
+        <section x-show="pagePanier" class="list-panier" id="testAffichage">
+
+                <article>
+                    <h3>Forfait mensuel</h3>
+                    <p>Prix <span>300</span></p>
+                    <p><span> 2</span> fois</p>
+                </article>
+
+
+                <template>
+                    
+                </template>
+        </section>
+
+    </main>
+
+    <footer x-show="!home">
+        <span id="nombrePanier" x-text="nombrePanier"></span>
+
+        <div>
+            <button @click="pageForfait = true, pageCours = false, pagePanier = false">Forfait</button>
+            <button @click="pageForfait = false, pageCours = true, pagePanier = false">Cours</button>
+        </div>
+
+        <button @click="pagePanier = true, pageCours = false, pageForfait = false">Panier</button>
+    </footer>
+
+
+</body>
+</html>
