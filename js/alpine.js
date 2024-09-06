@@ -7,6 +7,7 @@ const borne = () => {
         pageCours: false,
         pagePanier: false,
         nombrePanier: 0,
+        panier: [],
 
         forfaits: [
             {
@@ -148,11 +149,23 @@ const borne = () => {
         recupPanier() {
             let listeProduits = [];
 
+            html = "";
             for (var i = 0; i < localStorage.length; i++){
                 listeProduits.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
             }
 
-            console.log(listeProduits)
+            this.panier = listeProduits;
+        },
+
+        reset() {
+            localStorage.clear();
+
+            this.home = true;
+            this.pageForfait = false;
+            this.pageCours = false;
+            this.pagePanier = false;
+            this.nombrePanier = 0;
+            this.panier = [];
         }
     }
 }

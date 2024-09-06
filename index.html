@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles/style.css">
     <script src="js/alpine.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
     <script src="js/main.js"></script>
 
     <title>Le Montagnais</title>
@@ -82,16 +83,15 @@
 
         <section x-show="pagePanier" class="list-panier" id="testAffichage">
 
+            <template x-for="produit in panier">
                 <article>
-                    <h3>Forfait mensuel</h3>
-                    <p>Prix <span>300</span></p>
-                    <p><span> 2</span> fois</p>
+                    <h3 x-text="produit.niveau"></h3>
+                    <p>Prix : <span x-text="produit.prix"></span></p>
+                    <p><span x-text="produit.nombre"></span> fois</p>
                 </article>
+            </template>
 
-
-                <template>
-                    
-                </template>
+            <button id="buy" @click="reset()">Payer</button>
         </section>
 
     </main>
