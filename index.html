@@ -98,15 +98,23 @@
     <footer x-show="!home">
 
 
-        <div :class="pageCours? 'selectCours' : ''">
-            <button @click="pageForfait = true, pageCours = false, pagePanier = false">Forfait</button>
-            <button @click="pageForfait = false, pageCours = true, pagePanier = false">Cours</button>
+        <div :id="pageCours? 'selectCours' : ''">
+            <button @click="pageForfait = true, pageCours = false, pagePanier = false">
+                <img src="img/forfait.png" alt="Accéder aux produits des forfaits">
+                Forfait
+            </button>
+            <button @click="pageForfait = false, pageCours = true, pagePanier = false">
+                <img src="img/cours.png" alt="Accéder aux produits des cours">
+                Cours
+            </button>
         </div>
 
 
-        <button @click="pagePanier = true, pageCours = false, pageForfait = false">
+        <button id="buttonPanier" @click="pagePanier = true">
             <span id="nombrePanier" x-text="nombrePanier"></span>
-        Panier</button>
+            <img src="img/panier.png" alt="Accéder au panier">
+            Panier
+        </button>
     </footer>
 
 
