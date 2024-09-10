@@ -43,9 +43,10 @@
 
             <div>
             <template x-for="forfait in forfaits">
-                <article>
-                    <div class="block_product">
-                        <img>
+                <article  class="blockProduct">
+                    <img>
+                    <div>
+                        <h4 x-text="forfait.prix"></h4>
                         <h3 x-text="forfait.type"></h3>
                     </div>
                     <button @click="ajouterPanier(forfait, 0)">Ajouter</button>
@@ -61,9 +62,10 @@
 
             <div>
             <template x-for="lecon in lecons">
-                <article>
-                    <div class="block_product">
-                        <img>
+                <article class="blockProduct">
+                    <img>
+                    <div>
+
                         <h3 x-text="lecon.niveau"></h3>
                     </div>
                     <button @click="ajouterPanier(0, lecon)">Ajouter</button>
@@ -73,7 +75,7 @@
 
         </section>
 
-        <section x-show="pagePanier" class="list-panier" id="testAffichage">
+        <section x-show="pagePanier">
 
             <template x-for="produit in panier">
                 <article>

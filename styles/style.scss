@@ -242,8 +242,12 @@ footer {
 /// Pages de produits ///
 /////////////////////////
 
+main {
+    height: 65%;
+}
 .listProducts {
     margin: 0 7%;
+    height: 100%;
 
     h2 {
         font-size: 4em;
@@ -266,14 +270,32 @@ footer {
     }
 
     div {
-
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        row-gap: 60px;
+    }
+}
 
-        article {
-            width: 45%;
-        }
+.blockProduct {
+    width: 45%;
+    height: 16vh;
+    border-radius: 25px;
+    background-color: #1B3A41;
+    position: relative;
+    padding: 20px;
+
+    img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    div:first-of-type {
+        margin-top: 60%;
+        width: 100%;
     }
 }
 

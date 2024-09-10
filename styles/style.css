@@ -205,8 +205,13 @@ footer #buttonPanier span {
   font-weight: 700;
 }
 
+main {
+  height: 65%;
+}
+
 .listProducts {
   margin: 0 7%;
+  height: 100%;
 }
 .listProducts h2 {
   font-size: 4em;
@@ -230,7 +235,25 @@ footer #buttonPanier span {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  row-gap: 60px;
 }
-.listProducts div article {
+
+.blockProduct {
   width: 45%;
+  height: 16vh;
+  border-radius: 25px;
+  background-color: #1B3A41;
+  position: relative;
+  padding: 20px;
+}
+.blockProduct img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.blockProduct div:first-of-type {
+  margin-top: 60%;
+  width: 100%;
 }/*# sourceMappingURL=style.css.map */
