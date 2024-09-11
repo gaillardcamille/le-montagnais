@@ -7,6 +7,8 @@ const borne = () => {
         pageCours: false,
         pagePanier: false,
         nombrePanier: 0,
+        description: false,
+        produitDescription: [],
         panier: [],
 
         forfaits: [
@@ -149,7 +151,6 @@ const borne = () => {
         recupPanier() {
             let listeProduits = [];
 
-            html = "";
             for (var i = 0; i < localStorage.length; i++){
                 listeProduits.push(JSON.parse(localStorage.getItem(localStorage.key(i))));
             }
@@ -217,8 +218,13 @@ const borne = () => {
             this.panier = [];
         },
 
-        showDescription() {
+        showDescription(produit) {
+            this.description = true;
+            this.produitDescription = produit;
+        },
 
+        returnDescription() {
+            this.description = false;
         }
     }
 }

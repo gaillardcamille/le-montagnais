@@ -23,10 +23,8 @@
 
             <h1><img src="img/light-text-transparent.png" alt="Logo de la station de ski Le Montagnais"></h1>
 
-            <video autoplay muted loop id="backgroundVideo">
-                <source src="img/Montagnev3.mp4" type="video/mp4">
-                Votre navigateur ne supporte pas la balise vidéo.
-            </video>
+
+            <img src="img/Montagnev3.gif">
 
             <button><p>Toucher pour commencer</p></button>
             
@@ -55,7 +53,7 @@
                         </div>
                         <div>
                             <button @click="ajouterPanier(forfait, 0)">Ajouter au panier</button>
-                            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                            <button @click="showDescription(forfait)"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </div>
                     </div>
                 </article>
@@ -77,7 +75,7 @@
                         </div>
                         <div>
                             <button @click="ajouterPanier(0, lecon)">Ajouter au panier</button>
-                            <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                            <button @click="showDescription(lecon)"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </div>
                     </div>
                     
@@ -86,7 +84,20 @@
             </div>
         </section>
 
-        <section ></section>
+        <div x-show="description" @click="returnDescription()" id="backgroundDescription"></div>
+        <section x-show="description" id="productDescription">
+            <h2>Description</h2>
+
+            <!-- <img :src="produitDescription.image" alt="Product Image"> -->
+            <h3 x-text="produitDescription.type ? produitDescription.type : (produitDescription.niveau + ' ' + produitDescription.heure + 'h')"></h3>
+            <h4 x-text="produitDescription.prix"></h4>
+            <p x-text="produitDescription.description"></p>
+
+            <div>
+                <button @click="returnDescription()">Retour</button>
+                <button @click="produitDescription.type ? ajouterPanier(produitDescription, 0) : ajouterPanier(0, produitDescription)">Ajouter au panier</button>
+            </div>
+        </section>
 
         <section x-show="pagePanier">
             <template x-for="produit in panier">
