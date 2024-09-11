@@ -41,7 +41,7 @@ const borne = () => {
                 image: "test"
             },
             {
-                type: "Carte saisonnière",
+                type: "Annuel",
                 prix: 575,
                 description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
                 image: "test"
@@ -57,20 +57,6 @@ const borne = () => {
                 image: "test"
             },
             {
-                heure: 1,
-                niveau: "Intermédiaire",
-                prix: 25,
-                description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-                image: "test"
-            },
-            {
-                heure: 1,
-                niveau: "Avancé",
-                prix: 20,
-                description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-                image: "test"
-            },
-            {
                 heure: 2,
                 niveau: "Débutant",
                 prix: 35,
@@ -78,9 +64,23 @@ const borne = () => {
                 image: "test"
             },
             {
+                heure: 1,
+                niveau: "Intermédiaire",
+                prix: 25,
+                description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
+                image: "test"
+            },
+            {
                 heure: 2,
                 niveau: "Intermédiaire",
                 prix: 40,
+                description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
+                image: "test"
+            },
+            {
+                heure: 1,
+                niveau: "Avancé",
+                prix: 20,
                 description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
                 image: "test"
             },
@@ -215,6 +215,10 @@ const borne = () => {
             this.pagePanier = false;
             this.nombrePanier = 0;
             this.panier = [];
+        },
+
+        showDescription() {
+
         }
     }
 }
