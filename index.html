@@ -20,14 +20,14 @@
 
     <template x-if="home">
         <header id="homePage" @click="home = false; pageForfait = true">
-
             <h1><img src="img/light-text-transparent.png" alt="Logo de la station de ski Le Montagnais"></h1>
 
-
-            <img src="img/Montagnev3.gif">
+            <!-- <img src="img/Montagnev3.gif"> -->
+            <video autoplay loop>
+                <source src="img/Montagnev4_1.webm" type="video/webm" />
+              </video>
 
             <button><p>Toucher pour commencer</p></button>
-            
         </header>
     </template>
 
@@ -44,8 +44,8 @@
 
             <div>
             <template x-for="forfait in forfaits">
-                <article  class="blockProduct">
-                    <img>
+                <article class="blockProduct">
+                    <img :src="forfait.image" alt="Image d'illustration">
                     <div>
                         <div>
                             <h4 x-text="forfait.prix + '.00$'"></h4>
@@ -67,7 +67,7 @@
             <div>
             <template x-for="lecon in lecons">
                 <article  class="blockProduct">
-                    <img>
+                    <img :src="lecon.image" alt="Image d'illustration">
                     <div>
                         <div>
                             <h4 x-text="lecon.prix + '.00$'"></h4>
@@ -88,7 +88,7 @@
         <section x-show="description" id="productDescription">
             <h2>Description</h2>
 
-            <!-- <img :src="produitDescription.image" alt="Product Image"> -->
+            <img :src="produitDescription.image" alt="Image d'illustration">
             <h3 x-text="produitDescription.type ? produitDescription.type : (produitDescription.niveau + ' ' + produitDescription.heure + 'h')"></h3>
             <h4 x-text="produitDescription.prix"></h4>
             <p x-text="produitDescription.description"></p>
@@ -99,23 +99,61 @@
             </div>
         </section>
 
-        <section x-show="pagePanier">
-            <template x-for="produit in panier">
-                <article>
-                    <h3 x-text="produit.niveau"></h3>
-                    <p>Prix : <span x-text="produit.prix"></span></p>
-                    <p><span x-text="produit.nombre"></span> fois</p>
+        <div x-show="pagePanier" @click="returnShopping()" id="backgroundShopping"></div>
+        <section x-show="pagePanier" id="shoppingCart">
+            <h2>Panier</h2>
 
+            <div id="listShopping">
+                <template x-for="produit in panier">
+                    <article>
+    
+                        <img :src="produit.image" alt="Image d'illustration">
+    
                         <div>
-                            <a @click="nombreProduit(produit, -1)">Enlever</a>
-                            <a @click="nombreProduit(produit, 1)">Ajouter</a>
-                            <a @click="nombreProduit(produit, 2)">Supprimer</a>
+                            <h3 x-text="produit.niveau"></h3>
+    
+                            <div class="detailsPurchase">
+                                <a @click="nombreProduit(produit, -1)"><i class="fa-solid fa-minus"></i></a><span x-text="produit.nombre"></span><a @click="nombreProduit(produit, 1)"><i class="fa-solid fa-plus"></i></a>
+    
+                                <p x-text="produit.prix * produit.nombre + '.00$'"></p>
+                            </div>
+    
+                            <a @click="nombreProduit(produit, 2)" class="deleteAll">Tout Supprimer</a>
                         </div>
+    
+                    </article>
+                </template>
+            </div>
 
-                </article>
-            </template>
+            <hr>
 
-            <button id="buy" @click="reset()">Payer</button>
+            <div id="detailsShopping">
+                <h3>Transaction détails</h3>
+                <div>
+                    <div>
+                        <p>Sous total :</p>
+                        <p x-text="sous_total + '.00$'"></p>
+                    </div>
+                    <div>
+                        <p>TPS :</p>
+                        <p x-text="tps + '$'"></p>
+                    </div>
+                    <div>
+                        <p>TVQ :</p>
+                        <p x-text="tvq + '$'"></p>
+                    </div>
+                    <div>
+                        <h4>Total :</h4>
+                        <h4 x-text="total + '$'"></h4>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button @click="returnShopping()">Retour</button>
+                <button id="buy" @click="reset()">Valider le panier</button>
+            </div>
+            
         </section>
 
     </main>

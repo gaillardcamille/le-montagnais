@@ -1,4 +1,5 @@
 const borne = () => {
+    localStorage.clear();
     return {
 
         // Propriétés
@@ -10,43 +11,47 @@ const borne = () => {
         description: false,
         produitDescription: [],
         panier: [],
+        sous_total: 0,
+        tps: 0,
+        tvq: 0,
+        total: 0,
 
         forfaits: [
             {
                 type: "Demi-journée",
                 prix: 18,
                 description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-                image: "test"
+                image: "img/cours-ski-1.webp"
             },
             {
                 type: "Journée",
                 prix: 25,
                 description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-                image: "test"
+                image: "img/cours-ski-1.webp"
             },
             {
                 type: "Soirée",
                 prix: 15,
                 description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-                image: "test"
+                image: "img/cours-ski-1.webp"
             },
             {
                 type: "Hebdomadaire",
                 prix: 85,
                 description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-                image: "test"
+                image: "img/cours-ski-1.webp"
             },
             {
                 type: "Mensuel",
                 prix: 357,
                 description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-                image: "test"
+                image: "img/cours-ski-1.webp"
             },
             {
                 type: "Annuel",
                 prix: 575,
                 description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-                image: "test"
+                image: "img/cours-ski-1.webp"
             }
         ],
 
@@ -56,42 +61,42 @@ const borne = () => {
                 niveau: "Débutant",
                 prix: 20,
                 description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-                image: "test"
+                image: "img/debutant.webp"
             },
             {
                 heure: 2,
                 niveau: "Débutant",
                 prix: 35,
                 description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-                image: "test"
+                image: "img/cours-ski-1.webp"
             },
             {
                 heure: 1,
                 niveau: "Intermédiaire",
                 prix: 25,
                 description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-                image: "test"
+                image: "img/cours-ski-1.webp"
             },
             {
                 heure: 2,
                 niveau: "Intermédiaire",
                 prix: 40,
                 description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-                image: "test"
+                image: "img/cours-ski-1.webp"
             },
             {
                 heure: 1,
                 niveau: "Avancé",
                 prix: 20,
                 description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-                image: "test"
+                image: "img/avance.webp"
             },
             {
                 heure: 2,
                 niveau: "Avancé",
                 prix: 50,
                 description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-                image: "test"
+                image: "img/cours-ski-1.webp"
             }
         ],
 
@@ -115,10 +120,13 @@ const borne = () => {
                         niveau : forfait.type,
                         prix : forfait.prix,
                         nombre : 1,
+                        image : forfait.image,
                     };
 
                     localStorage.setItem("f_" + forfait.type, JSON.stringify(produit));
                 }
+
+                this.sous_total += forfait.prix
             }
 
             if (lecon != 0) {
@@ -137,15 +145,16 @@ const borne = () => {
                         heure : lecon.heure,
                         prix : lecon.prix,
                         nombre : 1,
+                        image : lecon.image,
                     };
 
                     localStorage.setItem("c_" + lecon.niveau + lecon.heure, JSON.stringify(produit));
                 }
+
+                this.sous_total += lecon.prix
             }
 
             this.recupPanier();
-
-            console.log(localStorage)
         },
 
         recupPanier() {
@@ -156,18 +165,19 @@ const borne = () => {
             }
 
             this.panier = listeProduits;
+
+            this.tps = ( 5 * this.sous_total / 100 ).toFixed(2);
+            this.tvq = ( 9.975 * this.sous_total / 100 ).toFixed(2);
+            this.total = ( parseFloat(this.sous_total) + parseFloat(this.tps) + parseFloat(this.tvq) ).toFixed(2);
         },
 
         nombreProduit(produit, nombre) {
-            console.log(produit);
-            console.log(nombre);
 
             if (produit.type == "Forfait") {
                 if (nombre != 2){
                     newProduit = JSON.parse(localStorage.getItem("f_" + produit.niveau));
 
-                    let nombreItem = newProduit.nombre;
-                    newProduit.nombre = nombreItem + nombre;
+                    newProduit.nombre += nombre;
 
                     if (newProduit.nombre == 0) {
                         localStorage.removeItem("f_" + produit.niveau);
@@ -185,8 +195,7 @@ const borne = () => {
                 if (nombre != 2){
                     newProduit = JSON.parse(localStorage.getItem("c_" + produit.niveau + produit.heure));
 
-                    let nombreItem = newProduit.nombre;
-                    newProduit.nombre = nombreItem + nombre;
+                    newProduit.nombre += nombre;
 
                     if (newProduit.nombre == 0) {
                         localStorage.removeItem("c_" + produit.niveau + produit.heure);
@@ -200,12 +209,42 @@ const borne = () => {
                 }
             }
 
-            if (nombre < 0 && this.nombrePanier > 0) {
-                this.nombrePanier -= 1;
+            switch (nombre) {
+                case -1:
+                    this.sous_total -= produit.prix
+                    this.nombrePanier -= 1;
+                  break;
+                case 1:
+                    this.sous_total += produit.prix
+                    this.nombrePanier += 1;
+                    break;
+                case 2:
+                    this.sous_total -= produit.prix * produit.nombre;
+                    this.nombrePanier -= produit.nombre;
+                  break;
+            }
+
+            if (this.nombrePanier == 0) {
+                this.pagePanier = false;
             }
 
             this.recupPanier();
         },
+
+        showDescription(produit) {
+            this.description = true;
+            this.produitDescription = produit;
+        },
+
+        returnDescription() {
+            this.description = false;
+        },
+
+        returnShopping() {
+            this.pagePanier = false;
+        },
+
+
 
         reset() {
             localStorage.clear();
@@ -218,14 +257,6 @@ const borne = () => {
             this.panier = [];
         },
 
-        showDescription(produit) {
-            this.description = true;
-            this.produitDescription = produit;
-        },
-
-        returnDescription() {
-            this.description = false;
-        }
     }
 }
 

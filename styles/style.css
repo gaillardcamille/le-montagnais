@@ -11,6 +11,7 @@ body {
   background-color: #21bb4f;
   aspect-ratio: 9/16;
   height: 100%;
+  overflow: hidden;
 }
 
 body {
@@ -92,9 +93,9 @@ body {
   transform: translate(-50%, -48%);
   animation: MoveUpDown 1s cubic-bezier(0.4, 0, 1, 1) infinite;
 }
-#homePage > img {
+#homePage > video {
   position: absolute;
-  bottom: 4%;
+  bottom: 0%;
   width: 100%;
   height: auto;
 }
@@ -252,7 +253,6 @@ main {
   width: 43%;
   height: 15vh;
   border-radius: 25px;
-  background-color: #1B3A41;
   position: relative;
   padding: 20px;
 }
@@ -262,7 +262,9 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  border-radius: 25px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .blockProduct > div {
   width: calc(100% - 40px);
@@ -315,9 +317,9 @@ main {
   position: absolute;
   left: -20px;
   bottom: -20px;
-  background: linear-gradient(0deg, rgb(0, 0, 0) 35%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(0deg, rgb(0, 0, 0) 35%, rgba(0, 0, 0, 0.7) 60%, rgba(0, 0, 0, 0) 90%);
   width: calc(100% + 40px);
-  height: calc(100% + 50px);
+  height: calc(100% + 65px);
   border-radius: 0 0 25px 25px;
 }
 
@@ -325,16 +327,16 @@ main {
   margin: auto;
   position: absolute;
   top: 50%;
-  transform: translateY(-50%);
-  left: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   height: -moz-fit-content;
   height: fit-content;
-  width: 80%;
+  width: 85%;
   background-color: #21bb4f;
   z-index: 2;
 }
 
-#backgroundDescription {
+#backgroundDescription, #backgroundShopping {
   background-color: black;
   width: 100%;
   height: 100%;
@@ -344,4 +346,142 @@ main {
   top: 0;
   z-index: 1;
   opacity: 0.4;
+}
+
+#shoppingCart {
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 80%;
+  width: 85%;
+  background-color: #D9EBF2;
+  z-index: 2;
+  padding: 30px 60px;
+  border-radius: 30px;
+}
+#shoppingCart h2 {
+  font-size: 4em;
+  text-align: center;
+  position: relative;
+  margin: auto;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-bottom: 25px;
+}
+#shoppingCart h2::after {
+  content: "";
+  display: block;
+  background-color: #BF463B;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  position: absolute;
+  right: -15px;
+  bottom: 14px;
+}
+#shoppingCart article {
+  position: relative;
+  display: flex;
+  margin: 35px 0;
+  justify-content: space-between;
+}
+#shoppingCart article img {
+  width: 46%;
+  border-radius: 15px;
+  border: 2px solid #1B3A41;
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 250px;
+}
+#shoppingCart article > div {
+  width: 50%;
+}
+#shoppingCart article h3 {
+  font-size: 3em;
+  font-weight: 100;
+  color: #1B3A41;
+}
+#shoppingCart hr {
+  border: solid black 1px;
+}
+
+.detailsPurchase {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  margin: 20px 0 40px;
+}
+.detailsPurchase a {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.detailsPurchase a:first-of-type {
+  background-color: #8EADB4;
+}
+.detailsPurchase a:last-of-type {
+  background-color: #4B6A71;
+}
+.detailsPurchase i {
+  font-size: 1.5em;
+}
+.detailsPurchase span {
+  margin: 0 10px;
+  font-weight: 700;
+  font-size: 2em;
+}
+.detailsPurchase p {
+  position: absolute;
+  right: 0;
+  font-size: 2.5em;
+  font-weight: 100;
+}
+
+.deleteAll {
+  opacity: 0.4;
+  font-size: 2em;
+}
+
+#detailsShopping {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 35px;
+}
+#detailsShopping h3 {
+  width: 40%;
+  font-size: 2em;
+  font-weight: 100;
+}
+#detailsShopping > div {
+  width: 50%;
+}
+#detailsShopping > div div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+#detailsShopping > div div p {
+  font-size: 1.6em;
+}
+#detailsShopping > div div p:last-child {
+  text-align: right;
+}
+#detailsShopping > div h4 {
+  font-size: 3em;
+  color: #1B3A41;
+  margin: 10px 0;
+}
+
+#listShopping {
+  overflow-y: auto;
+  max-height: 50vh;
 }/*# sourceMappingURL=style.css.map */

@@ -11,6 +11,7 @@ body {
     background-color: #21bb4f;
     aspect-ratio: 9 / 16;
     height: 100%;
+    overflow: hidden;
 }
 
 body {
@@ -106,9 +107,9 @@ body {
         }
     }
 
-    > img {
+    > video {
         position: absolute;
-        bottom: 4%;
+        bottom: 0%;
         width: 100%;
         height: auto;
     }
@@ -293,7 +294,6 @@ main {
     width: 43%;
     height: 15vh;
     border-radius: 25px;
-    background-color: #1B3A41;
     position: relative;
     padding: 20px;
 
@@ -303,7 +303,8 @@ main {
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: -1;
+        border-radius: 25px;
+        object-fit: cover;
     }
 
     > div {
@@ -366,9 +367,9 @@ main {
             left: -20px;
             bottom: -20px;
 
-            background: linear-gradient(0deg, rgb(0, 0, 0) 35%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0) 100%);
+            background: linear-gradient(0deg, rgb(0, 0, 0) 35%, rgba(0, 0, 0, 0.7) 60%, rgba(0, 0, 0, 0) 90%);
             width: calc(100% + 40px);
-            height: calc(100% + 50px);
+            height: calc(100% + 65px);
             border-radius: 0 0 25px 25px;
         }
     }
@@ -382,15 +383,15 @@ main {
     margin: auto;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
-    left: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     height: fit-content;
-    width: 80%;
+    width: 85%;
     background-color: #21bb4f;
     z-index: 2;
 }
 
-#backgroundDescription {
+#backgroundDescription, #backgroundShopping {
     background-color: black;
     width: 100%;
     height: 100%;
@@ -402,149 +403,174 @@ main {
     opacity: 0.4;
 }
 
-// // Header et footer
-// header {
-//     position: sticky;
-//     background-color: rgb(183, 101, 101);
-//     top: 0;
-//     width: 100%;
-//     left: 0;
-//     height: 10%;
-//     z-index: 2;
-// }
+////////////////
+/// Paiement ///
+////////////////
 
-// footer {
-//     position: absolute;
-//     background-color: purple;
-//     bottom: 0;
-//     left: 0;
-//     height: 8%;
-//     width: 100%;
-//     z-index: 2;
-//     display: flex;
-// }
+#shoppingCart {
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 80%;
+    width: 85%;
+    background-color: #D9EBF2;
+    z-index: 2;
+    padding: 30px 60px;
+    border-radius: 30px;
 
-// // Fil d'arianne
-// nav {
-//     width: 80%;
-//     position: relative;
-//     margin: 90px auto;
+    h2 {
+        font-size: 4em;
+        text-align: center;
+        position: relative;
+        margin: auto;
+        width: fit-content;
+        margin-bottom: 25px;
 
-//     div {
-//         position: absolute;
-//     }
+        &::after {
+            content: "";
+            display: block;
+            background-color: #BF463B;
+            width: 15px;
+            height: 15px;
+            border-radius: 100%;
 
-//     #ligne {
-//         position: relative;
-//         width: 100%;
-//         height: 5px;
-//         background-color: #000000;
-//     }
+            position: absolute;
+            right: -15px;
+            bottom: 14px;
+        }
+    }
 
-//     .piquet-1 {
-//         height: 50px;
-//         width: 20px;
-//         background-color: yellow;
-//         left: 10%;
-//         bottom: 0;
-//     }
+    article {
+        position: relative;
+        display: flex;
+        margin: 35px 0;
+        justify-content: space-between;
 
-//     .piquet-2 {
-//         height: 50px;
-//         width: 20px;
-//         background-color: yellow;
-//         left: 50%;
-//         transform: translateX(-50%);
-//         bottom: 0;
-//     }
+        img {
+            width: 46%;
+            border-radius: 15px;
+            border: 2px solid #1B3A41;
+            object-fit: cover;
+            height: 250px;
+        }
 
-//     .piquet-3 {
-//         height: 50px;
-//         width: 20px;
-//         background-color: yellow;
-//         right: 10%;
-//         bottom: 0;
-//     }
+        > div {
+            width: 50%;
+        }
 
-//     .personnage {
-//         width: 50px;
-//         height: 65px;
-//         background-color: green;
-//         bottom: 0;
-//     }
+        h3 {
+            font-size: 3em;
+            font-weight: 100;
+            color: #1B3A41;
+        }
+    }
 
-//     .position-1 {
-//         left: 11%;
-//     }
+    hr {
+        border: solid black 1px;
+    }
+}
 
-//     .position-2 {
-//         left: 50%;
-//     }
+.detailsPurchase {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    margin: 20px 0 40px;
 
-//     .position-3 {
-//         left: 89%;
-//     }
-// }
+    a {
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
 
-// main {
-//     height: calc(82% - 90px);
-// }
+        &:first-of-type {
+            background-color: #8EADB4;
+        }
 
-// // Produits
-// .block_product {
-//     aspect-ratio: 101 / 108;
-//     background-color: #c7c7c7;
-//     width: 100%;
-// }
+        &:last-of-type {
+            background-color: #4B6A71;
+        }
+    }
 
-// .list-products {
-//     display: flex;
-//     margin: auto;
-//     justify-content: space-evenly;
-//     flex-wrap: wrap;
-//     margin: -30px 0 30px;
-//     align-content: space-between;
-//     height: 87%;
-//     row-gap: 5%;
-//     column-gap: 25px;
+    i {
+        font-size: 1.5em;
+    }
 
-//     article {
-//         width: 32%;
-//     }
+    span {
+        margin: 0 10px;
+        font-weight: 700;
+        font-size: 2em;
+    }
 
-//     button {
-//         width: 90%;
-//         left: 5%;
-//         position: relative;
-//         height: 30px;
-//     }
-// }
+    p {
+        position: absolute;
+        right: 0;
+        font-size: 2.5em;
+        font-weight: 100;
+    }
+}
 
-// #nombrePanier {
-//     background-color: red;
-//     color: white;
-//     display: block;
-//     width: 80px;
-//     height: 80px;
-//     font-size: 50px;
-//     border-radius: 100%;
-// }
+.deleteAll {
+    opacity: 0.4;
+    font-size: 2em;
+}
 
-// button {
-//     font-size: 50px;
-// }
+#detailsShopping {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 35px;
 
-// .list-panier {
-//     margin: -30px auto 30px;
-//     width: 80%;
+    h3 {
+        width: 40%;
+        font-size: 2em;
+        font-weight: 100;
+    }
 
-//     article {
-//         width: 100%;
-//         border-radius: 20px;
-//         margin: 20px;
-//         border: solid black 2px;
-//         height: 200px;
-//         font-size: 40px;
-//         padding-left: 10px;
-//     }
-// }
+    > div {
+        width: 50%;
+
+        div {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin-bottom: 20px;
+
+            p {
+                font-size: 1.6em;
+            }
+
+            p:last-child {
+                text-align: right;
+            }
+        }
+
+        h4 {
+            font-size: 3em;
+            color: #1B3A41;
+            margin: 10px 0;
+        }
+    }
+}
+
+#listShopping {
+    overflow-y: auto;
+    max-height: 50vh;
+    // position: relative;
+
+    // &::before {
+    //     content: "";
+    //     display: block;
+    //     width: 100%;
+    //     position: absolute;
+    //     background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, #D9EBF2 100%);
+    //     left: 0;
+    //     top: 0;
+    //     height: 25px;
+    // }
+}
