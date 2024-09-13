@@ -107,7 +107,7 @@ body {
 		}
 	}
 
-	>video {
+	> video {
 		position: absolute;
 		bottom: 0%;
 		width: 100%;
@@ -116,12 +116,9 @@ body {
 }
 
 @keyframes MoveUpDown {
-
-	0%,
-	100% {
+	0%, 100% {
 		top: 0;
 	}
-
 	50% {
 		top: 4%;
 	}
