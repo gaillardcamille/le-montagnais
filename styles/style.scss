@@ -447,6 +447,7 @@ main {
         display: flex;
         margin: 35px 0;
         justify-content: space-between;
+        padding-right: 10px;
 
         img {
             width: 46%;
@@ -528,7 +529,7 @@ main {
 
     h3 {
         width: 40%;
-        font-size: 2em;
+        font-size: 2.3em;
         font-weight: 100;
     }
 
@@ -561,16 +562,59 @@ main {
 #listShopping {
     overflow-y: auto;
     max-height: 50vh;
-    // position: relative;
+}
 
-    // &::before {
-    //     content: "";
-    //     display: block;
-    //     width: 100%;
-    //     position: absolute;
-    //     background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, #D9EBF2 100%);
-    //     left: 0;
-    //     top: 0;
-    //     height: 25px;
-    // }
+#buttonShopping {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px 0 10px;
+
+    button {
+        height: 90px;
+        border-radius: 18px;
+        border: unset;
+        
+
+        &:first-child {
+            width: 35%;
+            background-color: #4B6A71;
+            color: #E7E7E7;
+            font-size: 40px;
+        }
+
+        &:last-child {
+            width: 60%;
+            color: #E7E7E7;
+            background-color: #1B3A41;
+            font-size: 50px;
+            position: relative;
+
+            &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                background-color: #BF463B;
+                width: 70px;
+                height: 70px;
+                border-radius: 100%;
+                right: 0;
+                top: 0;
+                transform: translate(+40%, -40%);
+            }
+
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                background-image: url(../img/paiement.png);
+                width: 50px;
+                height: 50px;
+                right: 0;
+                top: 0;
+                transform: translate(38%, -40%);
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        }
+    }
 }

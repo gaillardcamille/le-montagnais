@@ -386,6 +386,7 @@ main {
   display: flex;
   margin: 35px 0;
   justify-content: space-between;
+  padding-right: 10px;
 }
 #shoppingCart article img {
   width: 46%;
@@ -457,7 +458,7 @@ main {
 }
 #detailsShopping h3 {
   width: 40%;
-  font-size: 2em;
+  font-size: 2.3em;
   font-weight: 100;
 }
 #detailsShopping > div {
@@ -484,4 +485,53 @@ main {
 #listShopping {
   overflow-y: auto;
   max-height: 50vh;
+}
+
+#buttonShopping {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0 10px;
+}
+#buttonShopping button {
+  height: 90px;
+  border-radius: 18px;
+  border: unset;
+}
+#buttonShopping button:first-child {
+  width: 35%;
+  background-color: #4B6A71;
+  color: #E7E7E7;
+  font-size: 40px;
+}
+#buttonShopping button:last-child {
+  width: 60%;
+  color: #E7E7E7;
+  background-color: #1B3A41;
+  font-size: 50px;
+  position: relative;
+}
+#buttonShopping button:last-child::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: #BF463B;
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  right: 0;
+  top: 0;
+  transform: translate(40%, -40%);
+}
+#buttonShopping button:last-child::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-image: url(../img/paiement.png);
+  width: 50px;
+  height: 50px;
+  right: 0;
+  top: 0;
+  transform: translate(38%, -40%);
+  background-repeat: no-repeat;
+  background-position: center;
 }/*# sourceMappingURL=style.css.map */
