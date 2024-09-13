@@ -1,215 +1,235 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+		<link rel="icon" type="image/x-icon" href="img/favicon.ico">
 
-    <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+		<link rel="stylesheet" href="styles/style.css">
+		<link rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <script src="js/alpine.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <script src="js/main.js"></script>
+		<script src="js/alpine.js"></script>
+		<script defer
+			src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+		<script src="js/main.js"></script>
 
-    <title>Le Montagnais</title>
-</head>
+		<title>Le Montagnais</title>
+	</head>
 
-<body x-data="borne()">
+	<body x-data="borne()">
 
-    <template x-if="home">
-        <header id="homePage" @click="home = false; pageForfait = true">
-            <h1><img src="img/light-text-transparent.png" alt="Logo de la station de ski Le Montagnais"></h1>
+		<template x-if="home">
+			<header id="homePage" @click="home = false; pageForfait = true">
+				<h1><img src="img/light-text-transparent.png"
+						alt="Logo de la station de ski Le Montagnais"></h1>
 
-            <!-- <img src="img/Montagnev3.gif"> -->
-            <video autoplay loop>
-                <source src="img/Montagnev4_1.webm" type="video/webm" />
-              </video>
+				<!-- <img src="img/Montagnev3.gif"> -->
+				<video autoplay loop muted>
+					<source src="img/Montagnev4_1.webm" type="video/webm" />
+				</video>
 
-            <button><p>Toucher pour commencer</p></button>
-        </header>
-    </template>
+				<button><p>Toucher pour commencer</p></button>
+			</header>
+		</template>
 
-    <template x-if="!home">
-        <header id="othersPage">
-            <h1><img src="img/light-text-transparent.png" alt="Logo de la station de ski Le Montagnais"></h1>
-        </header>
-    </template>
+		<template x-if="!home">
+			<header id="othersPage">
+				<h1><img src="img/light-text-transparent.png"
+						alt="Logo de la station de ski Le Montagnais"></h1>
+			</header>
+		</template>
 
-    <main x-show="!home">
+		<main x-show="!home">
 
-        <section x-show="pageForfait" class="listProducts">
-            <h2>Forfaits</h2>
+			<section x-show="pageForfait" class="listProducts">
+				<h2>Forfaits</h2>
 
-            <div>
-            <template x-for="forfait in forfaits">
-                <article class="blockProduct">
-                    <img :src="forfait.image" alt="Image d'illustration"  @click="showDescription(forfait)">
-                    <div>
-                        <div>
-                            <h4 x-text="forfait.prix + '.00$'"></h4>
-                            <h3 x-text="forfait.type"></h3>
-                        </div>
-                        <div>
-                            <button @click="ajouterPanier(forfait, 0)">Ajouter au panier</button>
-                            <button @click="showDescription(forfait)"><i class="fa-solid fa-magnifying-glass"></i></button>
-                        </div>
-                    </div>
-                </article>
-            </template>
-            </div>
-        </section>
+				<div>
+					<template x-for="forfait in forfaits">
+						<article class="blockProduct">
+							<img :src="forfait.image" alt="Image d'illustration"
+								@click="showDescription(forfait)">
+							<div>
+								<div>
+									<h4 x-text="forfait.prix + '.00$'"></h4>
+									<h3 x-text="forfait.type"></h3>
+								</div>
+								<div>
+									<button @click="ajouterPanier(forfait, 0)">Ajouter au panier</button>
+									<button @click="showDescription(forfait)"><i
+											class="fa-solid fa-magnifying-glass"></i></button>
+								</div>
+							</div>
+						</article>
+					</template>
+				</div>
+			</section>
 
-        <section x-show="pageCours" class="listProducts">
-            <h2>Cours</h2>
+			<section x-show="pageCours" class="listProducts">
+				<h2>Cours</h2>
 
-            <div>
-            <template x-for="lecon in lecons">
-                <article  class="blockProduct">
-                    <img :src="lecon.image" alt="Image d'illustration" @click="showDescription(lecon)">
-                    <div>
-                        <div>
-                            <h4 x-text="lecon.prix + '.00$'"></h4>
-                            <h3 x-text="lecon.niveau + ' ' + lecon.heure + 'h'"></h3>
-                        </div>
-                        <div>
-                            <button @click="ajouterPanier(0, lecon)">Ajouter au panier</button>
-                            <button @click="showDescription(lecon)"><i class="fa-solid fa-magnifying-glass"></i></button>
-                        </div>
-                    </div>
-                    
-                </article>
-            </template>
-            </div>
-        </section>
+				<div>
+					<template x-for="lecon in lecons">
+						<article class="blockProduct">
+							<img :src="lecon.image" alt="Image d'illustration"
+								@click="showDescription(lecon)">
+							<div>
+								<div>
+									<h4 x-text="lecon.prix + '.00$'"></h4>
+									<h3 x-text="lecon.niveau + ' ' + lecon.heure + 'h'"></h3>
+								</div>
+								<div>
+									<button @click="ajouterPanier(0, lecon)">Ajouter au panier</button>
+									<button @click="showDescription(lecon)"><i
+											class="fa-solid fa-magnifying-glass"></i></button>
+								</div>
+							</div>
 
-        <div x-show="description" @click="returnDescription()" id="backgroundDescription"></div>
-        <section x-show="description" id="productDescription">
-            <h2>Description</h2>
+						</article>
+					</template>
+				</div>
+			</section>
 
-            <img :src="produitDescription.image" alt="Image d'illustration">
-            <h3 x-text="produitDescription.type ? ('Passe ' + produitDescription.type) : ('Cours ' + produitDescription.niveau + ' ' + produitDescription.heure + 'h')"></h3>
-            <h4 x-text="produitDescription.prix + '.00$'"></h4>
-            <p x-text="produitDescription.description"></p>
+			<div x-show="description" @click="returnDescription()"
+				id="backgroundDescription"></div>
+			<section x-show="description" id="productDescription">
+				<h2>Description</h2>
 
-            <div id="buttonDescription">
-                <button @click="returnDescription()">Retour</button>
-                <button @click="produitDescription.type ? ajouterPanier(produitDescription, 0) : ajouterPanier(0, produitDescription)">Ajouter au panier</button>
-            </div>
-        </section>
+				<img :src="produitDescription.image" alt="Image d'illustration">
+				<h3
+					x-text="produitDescription.type ? ('Passe ' + produitDescription.type) : ('Cours ' + produitDescription.niveau + ' ' + produitDescription.heure + 'h')"></h3>
+				<h4 x-text="produitDescription.prix + '.00$'"></h4>
+				<p x-text="produitDescription.description"></p>
 
-        <div x-show="pagePanier" @click="returnShopping()" id="backgroundShopping"></div>
-        <section x-show="pagePanier" id="shoppingCart">
-            <h2>Panier</h2>
+				<div id="buttonDescription">
+					<button @click="returnDescription()">Retour</button>
+					<button
+						@click="produitDescription.type ? ajouterPanier(produitDescription, 0) : ajouterPanier(0, produitDescription)">Ajouter
+						au panier</button>
+				</div>
+			</section>
 
-            <div id="listShopping">
-                <template x-for="produit in panier">
-                    <article>
-    
-                        <img :src="produit.image" alt="Image d'illustration">
-    
-                        <div>
-                            <h3 x-text="produit.type == 'Forfait' ? ('Passe ' + produit.niveau) : ('Cours ' + produit.niveau + ' ' + produit.heure + 'h')"></h3>
-    
-                            <div class="detailsPurchase">
-                                <a @click="nombreProduit(produit, -1)"><i class="fa-solid fa-minus"></i></a><span x-text="produit.nombre"></span><a @click="nombreProduit(produit, 1)"><i class="fa-solid fa-plus"></i></a>
-    
-                                <p x-text="produit.prix * produit.nombre + '.00$'"></p>
-                            </div>
-    
-                            <a @click="nombreProduit(produit, 2)" class="deleteAll">Tout Supprimer</a>
-                        </div>
-    
-                    </article>
-                </template>
-            </div>
+			<div x-show="pagePanier" @click="returnShopping()"
+				id="backgroundShopping"></div>
+			<section x-show="pagePanier" id="shoppingCart">
+				<h2>Panier</h2>
 
-            <hr>
+				<div id="listShopping">
+					<template x-for="produit in panier">
+						<article>
 
-            <div id="detailsShopping">
-                <h3>Transaction détails</h3>
-                <div>
-                    <div>
-                        <p>Sous total :</p>
-                        <p x-text="sous_total + '.00$'"></p>
-                    </div>
-                    <div>
-                        <p>TPS :</p>
-                        <p x-text="tps + '$'"></p>
-                    </div>
-                    <div>
-                        <p>TVQ :</p>
-                        <p x-text="tvq + '$'"></p>
-                    </div>
-                    <div>
-                        <h4>Total :</h4>
-                        <h4 x-text="total + '$'"></h4>
-                    </div>
-                </div>
-            </div>
+							<img :src="produit.image" alt="Image d'illustration">
 
-            <div id="buttonShopping">
-                <button @click="returnShopping()">Retour</button>
-                <button id="buy" @click="moyenPaiement = true, pagePanier = false">Valider le panier</button>
-            </div>
-            
-        </section>
+							<div>
+								<h3
+									x-text="produit.type == 'Forfait' ? ('Passe ' + produit.niveau) : ('Cours ' + produit.niveau + ' ' + produit.heure + 'h')"></h3>
 
-        <section id="afterShopping" x-show="moyenPaiement">
+								<div class="detailsPurchase">
+									<a @click="nombreProduit(produit, -1)"><i
+											class="fa-solid fa-minus"></i></a><span
+										x-text="produit.nombre"></span><a
+										@click="nombreProduit(produit, 1)"><i
+											class="fa-solid fa-plus"></i></a>
 
-            <div x-show="etape == 0">
-                <button @click="buy(1)">
-                    Payer par carte
-                    <img src="img/paiementCard.png">
-                </button>
-                <button @click="buy(2)">
-                    Payer au comptoir
-                    <img src="img/paiementMoney.png">
-                </button>
-            </div>
+									<p x-text="produit.prix * produit.nombre + '.00$'"></p>
+								</div>
 
-            <div x-show="etape == 1">
-                <h2>Faîtes chauffer la carte</h2>
-                <p>Gardez bien votre ticket, c'est important</p>
-                <img src="img/Loading.gif">
-                <p>Veuillez payer à l'aide du terminal</p>
-                <i class="fa-solid fa-arrow-down"></i>
-            </div>
+								<a @click="nombreProduit(produit, 2)" class="deleteAll">Tout
+									Supprimer</a>
+							</div>
 
-            <div x-show="etape == 2">
-                <h2>Dirigez vous au comptoir</h2>
-                <div id="numberPurchase">
-                    <h3 x-text="'#' + numero"></h3>
-                    <img src="img/ticket.png">
-                </div>
+						</article>
+					</template>
+				</div>
 
-                <h4>Merci de votre commande,<br>bonne glisse !</h4>
-                <p>Pensez à prendre votre ticket !</p>
-                <i class="fa-solid fa-arrow-down"></i>
-            </div>
-        </section>
+				<hr>
 
-    </main>
+				<div id="detailsShopping">
+					<h3>Transaction détails</h3>
+					<div>
+						<div>
+							<p>Sous total :</p>
+							<p x-text="sous_total + '.00$'"></p>
+						</div>
+						<div>
+							<p>TPS :</p>
+							<p x-text="tps + '$'"></p>
+						</div>
+						<div>
+							<p>TVQ :</p>
+							<p x-text="tvq + '$'"></p>
+						</div>
+						<div>
+							<h4>Total :</h4>
+							<h4 x-text="total + '$'"></h4>
+						</div>
+					</div>
+				</div>
 
-    <footer x-show="!home">
-        <div :id="pageCours? 'selectCours' : ''">
-            <button @click="pageForfait = true, pageCours = false, pagePanier = false">
-                <img src="img/forfait.png" alt="Accéder aux produits des forfaits">
-                Forfait
-            </button>
-            <button @click="pageForfait = false, pageCours = true, pagePanier = false">
-                <img src="img/cours.png" alt="Accéder aux produits des cours">
-                Cours
-            </button>
-        </div>
+				<div id="buttonShopping">
+					<button @click="returnShopping()">Retour</button>
+					<button id="buy" @click="moyenPaiement = true, pagePanier = false">Valider
+						le panier</button>
+				</div>
 
-        <button id="buttonPanier" @click="pagePanier = true">
-            <span id="nombrePanier" x-text="nombrePanier"></span>
-            <img src="img/panier.png" alt="Accéder au panier">
-            Panier
-        </button>
-    </footer>
+			</section>
 
-</body>
+			<section id="afterShopping" x-show="moyenPaiement">
+
+				<div x-show="etape == 0">
+					<button @click="buy(1)">
+						Payer par carte
+						<img src="img/paiementCard.png">
+					</button>
+					<button @click="buy(2)">
+						Payer au comptoir
+						<img src="img/paiementMoney.png">
+					</button>
+				</div>
+
+				<div x-show="etape == 1">
+					<h2>Faîtes chauffer la carte</h2>
+					<p>Gardez bien votre ticket, c'est important</p>
+					<img src="img/Loading.gif">
+					<p>Veuillez payer à l'aide du terminal</p>
+					<i class="fa-solid fa-arrow-down"></i>
+				</div>
+
+				<div x-show="etape == 2">
+					<h2>Dirigez vous au comptoir</h2>
+					<div id="numberPurchase">
+						<h3 x-text="'#' + numero"></h3>
+						<img src="img/ticket.png">
+					</div>
+
+					<h4>Merci de votre commande,<br>bonne glisse !</h4>
+					<p>Pensez à prendre votre ticket !</p>
+					<i class="fa-solid fa-arrow-down"></i>
+				</div>
+			</section>
+
+		</main>
+
+		<footer x-show="!home">
+			<div :id="pageCours? 'selectCours' : ''">
+				<button @click="pageForfait = true, pageCours = false, pagePanier = false">
+					<img src="img/forfait.png" alt="Accéder aux produits des forfaits">
+					Forfait
+				</button>
+				<button @click="pageForfait = false, pageCours = true, pagePanier = false">
+					<img src="img/cours.png" alt="Accéder aux produits des cours">
+					Cours
+				</button>
+			</div>
+
+			<button id="buttonPanier" @click="pagePanier = true">
+				<span id="nombrePanier" x-text="nombrePanier"></span>
+				<img src="img/panier.png" alt="Accéder au panier">
+				Panier
+			</button>
+		</footer>
+
+	</body>
 </html>
