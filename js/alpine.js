@@ -169,6 +169,8 @@ const borne = () => {
             this.tps = ( 5 * this.sous_total / 100 ).toFixed(2);
             this.tvq = ( 9.975 * this.sous_total / 100 ).toFixed(2);
             this.total = ( parseFloat(this.sous_total) + parseFloat(this.tps) + parseFloat(this.tvq) ).toFixed(2);
+        
+            console.log(listeProduits)
         },
 
         nombreProduit(produit, nombre) {
@@ -234,6 +236,7 @@ const borne = () => {
         showDescription(produit) {
             this.description = true;
             this.produitDescription = produit;
+            console.log(this.produitDescription)
         },
 
         returnDescription() {

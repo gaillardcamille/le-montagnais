@@ -89,11 +89,11 @@
             <h2>Description</h2>
 
             <img :src="produitDescription.image" alt="Image d'illustration">
-            <h3 x-text="produitDescription.type ? produitDescription.type : (produitDescription.niveau + ' ' + produitDescription.heure + 'h')"></h3>
-            <h4 x-text="produitDescription.prix"></h4>
+            <h3 x-text="produitDescription.type ? ('Passe ' + produitDescription.type) : ('Cours ' + produitDescription.niveau + ' ' + produitDescription.heure + 'h')"></h3>
+            <h4 x-text="produitDescription.prix + '.00$'"></h4>
             <p x-text="produitDescription.description"></p>
 
-            <div>
+            <div id="buttonDescription">
                 <button @click="returnDescription()">Retour</button>
                 <button @click="produitDescription.type ? ajouterPanier(produitDescription, 0) : ajouterPanier(0, produitDescription)">Ajouter au panier</button>
             </div>
@@ -110,7 +110,7 @@
                         <img :src="produit.image" alt="Image d'illustration">
     
                         <div>
-                            <h3 x-text="produit.niveau"></h3>
+                            <h3 x-text="produit.type == 'Forfait' ? ('Passe ' + produit.niveau) : ('Cours ' + produit.niveau + ' ' + produit.heure + 'h')"></h3>
     
                             <div class="detailsPurchase">
                                 <a @click="nombreProduit(produit, -1)"><i class="fa-solid fa-minus"></i></a><span x-text="produit.nombre"></span><a @click="nombreProduit(produit, 1)"><i class="fa-solid fa-plus"></i></a>

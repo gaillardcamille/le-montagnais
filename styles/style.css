@@ -332,8 +332,111 @@ main {
   height: -moz-fit-content;
   height: fit-content;
   width: 85%;
-  background-color: #21bb4f;
+  background-color: #D9EBF2;
   z-index: 2;
+  padding: 30px 60px;
+  border-radius: 30px;
+}
+#productDescription img {
+  width: 100%;
+  border-radius: 15px;
+  border: 2px solid #1B3A41;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 50px 0 40px;
+  height: 25vh;
+}
+#productDescription h2 {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  font-size: 4em;
+  position: relative;
+}
+#productDescription h2::after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 7px;
+  background-color: #BF463B;
+  position: absolute;
+  right: -12px;
+  bottom: 14px;
+}
+#productDescription h3 {
+  font-size: 2em;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+  margin-bottom: 20px;
+}
+#productDescription h3::after {
+  content: "";
+  display: block;
+  width: 30%;
+  height: 5px;
+  border-radius: 3px;
+  background-color: #BF463B;
+  position: absolute;
+  right: 0px;
+  bottom: -5px;
+}
+#productDescription h4 {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+#productDescription p {
+  font-size: 1.2em;
+}
+
+#buttonDescription {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px 0 10px;
+}
+#buttonDescription button {
+  height: 90px;
+  border-radius: 18px;
+  border: unset;
+}
+#buttonDescription button:first-child {
+  width: 35%;
+  background-color: #4B6A71;
+  color: #E7E7E7;
+  font-size: 40px;
+}
+#buttonDescription button:last-child {
+  width: 60%;
+  color: #E7E7E7;
+  background-color: #1B3A41;
+  font-size: 50px;
+  position: relative;
+}
+#buttonDescription button:last-child::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: #BF463B;
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  right: 0;
+  top: 0;
+  transform: translate(40%, -40%);
+}
+#buttonDescription button:last-child::after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-image: url(../img/logo_panier.png);
+  width: 45px;
+  height: 45px;
+  right: 0;
+  top: 0;
+  transform: translate(33%, -33%);
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #backgroundDescription, #backgroundShopping {
