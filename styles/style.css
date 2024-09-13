@@ -650,19 +650,19 @@ main {
   width: 100%;
   height: 100%;
   z-index: 1;
-  padding-top: 20vh;
+  padding-top: 10vh;
 }
-#afterShopping div {
+#afterShopping > div {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-#afterShopping div:first-child {
+#afterShopping > div:first-child {
   display: flex;
   flex-direction: column;
 }
-#afterShopping div:first-child button {
+#afterShopping > div:first-child button {
   height: 13vh;
   width: auto;
   aspect-ratio: 1.5/1;
@@ -678,7 +678,7 @@ main {
   font-weight: 700;
   position: relative;
 }
-#afterShopping div:first-child button:first-child::after {
+#afterShopping > div:first-child button:first-child::after {
   content: "";
   display: block;
   height: 5px;
@@ -690,7 +690,68 @@ main {
   bottom: 20px;
   background-color: #BF463B;
 }
-#afterShopping div:first-child img {
+#afterShopping > div:first-child img {
   width: 25%;
   margin-top: 30px;
+}
+#afterShopping > div:nth-child(2), #afterShopping > div:last-child {
+  width: -moz-max-content;
+  width: max-content;
+  height: 50%;
+}
+#afterShopping > div:nth-child(2) p, #afterShopping > div:last-child p {
+  font-size: 2em;
+  text-align: center;
+}
+#afterShopping > div:nth-child(2) > img, #afterShopping > div:last-child > img {
+  width: 60%;
+  margin: 100px auto;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#afterShopping > div:nth-child(2) h2, #afterShopping > div:last-child h2 {
+  font-size: 3em;
+  text-align: center;
+  margin-bottom: 15px;
+}
+#afterShopping > div:nth-child(2) h4, #afterShopping > div:last-child h4 {
+  font-size: 1.8em;
+  text-align: center;
+  margin-bottom: 100px;
+}
+#afterShopping #numberPurchase {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+  font-size: 50px;
+  margin: 100px;
+}
+#afterShopping #numberPurchase img {
+  width: 150px;
+}
+#afterShopping #numberPurchase h3 {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+#afterShopping i {
+  font-size: 20em;
+  color: #8EADB4;
+  animation: MoveUpDownArrow 1s cubic-bezier(0.4, 0, 1, 1) infinite;
+  position: relative;
+  left: 50%;
+  bottom: -25%;
+  transform: translateX(-50%);
+}
+
+@keyframes MoveUpDownArrow {
+  0%, 100% {
+    bottom: -25%;
+  }
+  50% {
+    bottom: -27%;
+  }
 }/*# sourceMappingURL=style.css.map */

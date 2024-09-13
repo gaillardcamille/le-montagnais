@@ -170,22 +170,23 @@
             </div>
 
             <div x-show="etape == 1">
-                <h2></h2>
+                <h2>Faîtes chauffer la carte</h2>
                 <p>Gardez bien votre ticket, c'est important</p>
-                <img>
+                <img src="img/Loading.gif">
                 <p>Veuillez payer à l'aide du terminal</p>
+                <i class="fa-solid fa-arrow-down"></i>
             </div>
 
             <div x-show="etape == 2">
                 <h2>Dirigez vous au comptoir</h2>
-                <div>
+                <div id="numberPurchase">
                     <h3 x-text="'#' + numero"></h3>
-                    <img>
+                    <img src="img/ticket.png">
                 </div>
 
                 <h4>Merci de votre commande,<br>bonne glisse !</h4>
                 <p>Pensez à prendre votre ticket !</p>
-                
+                <i class="fa-solid fa-arrow-down"></i>
             </div>
         </section>
 
