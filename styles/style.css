@@ -643,7 +643,7 @@ main {
 }
 
 #afterShopping {
-  background-color: #21bb4f;
+  background-color: #B2C7CF;
   position: absolute;
   top: 0;
   left: 0;
@@ -651,4 +651,46 @@ main {
   height: 100%;
   z-index: 1;
   padding-top: 20vh;
+}
+#afterShopping div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#afterShopping div:first-child {
+  display: flex;
+  flex-direction: column;
+}
+#afterShopping div:first-child button {
+  height: 13vh;
+  width: auto;
+  aspect-ratio: 1.5/1;
+  margin: 70px;
+  background-color: #8EADB4;
+  border: none;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  font-weight: 700;
+  position: relative;
+}
+#afterShopping div:first-child button:first-child::after {
+  content: "";
+  display: block;
+  height: 5px;
+  border-radius: 5px;
+  width: 80%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 20px;
+  background-color: #BF463B;
+}
+#afterShopping div:first-child img {
+  width: 25%;
+  margin-top: 30px;
 }/*# sourceMappingURL=style.css.map */
