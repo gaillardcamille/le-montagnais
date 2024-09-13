@@ -15,6 +15,9 @@ const borne = () => {
         tps: 0,
         tvq: 0,
         total: 0,
+        moyenPaiement: false,
+        numero: 0,
+        etape: 0,
 
         forfaits: [
             {
@@ -247,8 +250,6 @@ const borne = () => {
             this.pagePanier = false;
         },
 
-
-
         reset() {
             localStorage.clear();
 
@@ -256,10 +257,43 @@ const borne = () => {
             this.pageForfait = false;
             this.pageCours = false;
             this.pagePanier = false;
+            this.description = false;
             this.nombrePanier = 0;
             this.panier = [];
+            this.produitDescription = [];
+            this.sous_total = 0;
+            this.tps = 0;
+            this.tvq = 0;
+            this.total = 0;
+            this.moyenPaiement = false;
+            this.etape = 0;
         },
 
+        buy(int) {
+            this.numero = Math.floor(Math.random() * 200) + 1;
+            console.log(this.numero)
+
+            if (int == 1){
+                this.etape = 1;
+
+                setTimeout(() => {
+                    this.etape = 2;
+
+                    setTimeout(() => {
+                        this.reset();
+                    }, 5000);
+
+                }, 10000);
+            }
+
+            if (int == 2){
+                this.etape = 2;
+
+                setTimeout(() => {
+                    this.reset();
+                }, 5000);
+            }
+        }
     }
 }
 

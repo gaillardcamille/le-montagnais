@@ -111,6 +111,8 @@ body {
 #othersPage {
   height: 20%;
   width: 100%;
+  z-index: 2;
+  position: relative;
 }
 #othersPage h1 {
   width: 38%;
@@ -638,4 +640,15 @@ main {
   transform: translate(38%, -40%);
   background-repeat: no-repeat;
   background-position: center;
+}
+
+#afterShopping {
+  background-color: #21bb4f;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  padding-top: 20vh;
 }/*# sourceMappingURL=style.css.map */
