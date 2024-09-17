@@ -15,7 +15,7 @@ body {
 }
 
 body {
-  background-color: #D9EBF2;
+  background-color: var(--background-color);
 }
 
 #homePage {
@@ -43,8 +43,8 @@ body {
   bottom: 0;
   height: 25%;
   width: 100%;
-  color: white;
-  background-color: #4B6A71;
+  color: var(--white-color);
+  background-color: var(--primary-color);
   border-radius: 25px 25px 0 0;
   font-size: 4em;
 }
@@ -60,7 +60,7 @@ body {
   width: 17%;
   height: 7px;
   border-radius: 7px;
-  background-color: #BF463B;
+  background-color: var(--accent-color);
   position: absolute;
   right: -15px;
   bottom: -15px;
@@ -72,7 +72,7 @@ body {
   height: auto;
   aspect-ratio: 1;
   border-radius: 100%;
-  background-color: #1B3A41;
+  background-color: var(--secondary-color);
   position: absolute;
   top: 0;
   left: 50%;
@@ -157,7 +157,7 @@ footer div button {
   text-align: center;
   font-weight: 700;
   z-index: 2;
-  color: white;
+  color: var(--white-color);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -179,7 +179,7 @@ footer div::after {
   width: 50%;
   height: 100%;
   border-radius: 25px;
-  background-color: #4B6A71;
+  background-color: var(--primary-color);
   transition: all ease-out 0.2s;
 }
 footer #selectCours::after {
@@ -194,14 +194,14 @@ footer button {
   cursor: pointer;
 }
 footer #buttonPanier {
-  background-color: #1B3A41;
+  background-color: var(--secondary-color);
   font-size: 2.5em;
   width: 22%;
   border-radius: 25px;
   text-align: center;
   align-content: center;
   position: relative;
-  color: #E7E7E7;
+  color: var(--text-color);
 }
 footer #buttonPanier span {
   position: absolute;
@@ -211,11 +211,28 @@ footer #buttonPanier span {
   width: 70px;
   aspect-ratio: 1;
   height: auto;
-  background-color: #BF463B;
+  background-color: var(--accent-color);
   border-radius: 100%;
   align-content: center;
   font-size: 45px;
   font-weight: 700;
+}
+footer #buttonPanier.cantOpen {
+  animation: cantOpen 0.5s ease-in-out;
+}
+@keyframes cantOpen {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
 }
 
 main {
@@ -239,7 +256,7 @@ main {
   width: 50%;
   height: 7px;
   border-radius: 7px;
-  background-color: #BF463B;
+  background-color: var(--accent-color);
   position: absolute;
   right: 0px;
   bottom: -10px;
@@ -279,7 +296,7 @@ main {
   flex-direction: row;
   justify-content: space-between;
   align-items: end;
-  color: white;
+  color: var(--white-color);
   z-index: 1;
 }
 .blockProduct > div div:first-of-type h4 {
@@ -305,13 +322,13 @@ main {
   width: 70%;
   font-size: 24px;
   background-color: #C0D5DD;
-  color: #1D353F;
+  color: var(--secondary-color);
 }
 .blockProduct > div div:last-of-type button:last-child {
   width: 25%;
   font-size: 24px;
-  color: #ffffff;
-  background-color: #1D353F;
+  color: var(--white-color);
+  background-color: var(--secondary-color);
 }
 .blockProduct > div::before {
   content: "";
@@ -334,7 +351,7 @@ main {
   height: -moz-fit-content;
   height: fit-content;
   width: 85%;
-  background-color: #D9EBF2;
+  background-color: var(--background-color);
   z-index: 2;
   padding: 30px 60px;
   border-radius: 30px;
@@ -342,7 +359,7 @@ main {
 #productDescription img {
   width: 100%;
   border-radius: 15px;
-  border: 2px solid #1B3A41;
+  border: 2px solid var(--secondary-color);
   -o-object-fit: cover;
      object-fit: cover;
   margin: 50px 0 40px;
@@ -361,7 +378,7 @@ main {
   width: 10px;
   height: 10px;
   border-radius: 7px;
-  background-color: #BF463B;
+  background-color: var(--accent-color);
   position: absolute;
   right: -12px;
   bottom: 14px;
@@ -379,7 +396,7 @@ main {
   width: 30%;
   height: 5px;
   border-radius: 3px;
-  background-color: #BF463B;
+  background-color: var(--accent-color);
   position: absolute;
   right: 0px;
   bottom: -5px;
@@ -405,14 +422,14 @@ main {
 }
 #buttonDescription button:first-child {
   width: 35%;
-  background-color: #4B6A71;
-  color: #E7E7E7;
+  background-color: var(--primary-color);
+  color: var(--text-color);
   font-size: 40px;
 }
 #buttonDescription button:last-child {
   width: 60%;
-  color: #E7E7E7;
-  background-color: #1B3A41;
+  color: var(--text-color);
+  background-color: var(--secondary-color);
   font-size: 50px;
   position: relative;
 }
@@ -420,7 +437,7 @@ main {
   content: "";
   display: block;
   position: absolute;
-  background-color: #BF463B;
+  background-color: var(--accent-color);
   width: 70px;
   height: 70px;
   border-radius: 100%;
@@ -442,16 +459,15 @@ main {
   background-position: center;
 }
 
-#backgroundDescription,
-#backgroundShopping {
-  background-color: black;
+#background {
+  background-color: var(--black-color);
   width: 100%;
   height: 100%;
   position: absolute;
   display: block;
   left: 0;
   top: 0;
-  z-index: 1;
+  z-index: 2;
   opacity: 0.4;
 }
 
@@ -463,7 +479,7 @@ main {
   transform: translate(-50%, -50%);
   max-height: 80%;
   width: 85%;
-  background-color: #D9EBF2;
+  background-color: var(--background-color);
   z-index: 2;
   padding: 30px 60px;
   border-radius: 30px;
@@ -480,7 +496,7 @@ main {
 #shoppingCart h2::after {
   content: "";
   display: block;
-  background-color: #BF463B;
+  background-color: var(--accent-color);
   width: 15px;
   height: 15px;
   border-radius: 100%;
@@ -498,7 +514,7 @@ main {
 #shoppingCart article img {
   width: 46%;
   border-radius: 15px;
-  border: 2px solid #1B3A41;
+  border: 2px solid var(--secondary-color);
   -o-object-fit: cover;
      object-fit: cover;
   height: 250px;
@@ -509,10 +525,10 @@ main {
 #shoppingCart article h3 {
   font-size: 3em;
   font-weight: 100;
-  color: #1B3A41;
+  color: var(--secondary-color);
 }
 #shoppingCart hr {
-  border: solid black 1px;
+  border: solid var(--black-color) 1px;
 }
 
 .detailsPurchase {
@@ -529,13 +545,13 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: var(--white-color);
 }
 .detailsPurchase a:first-of-type {
   background-color: #8EADB4;
 }
 .detailsPurchase a:last-of-type {
-  background-color: #4B6A71;
+  background-color: var(--primary-color);
 }
 .detailsPurchase i {
   font-size: 1.5em;
@@ -585,7 +601,7 @@ main {
 }
 #detailsShopping > div h4 {
   font-size: 3em;
-  color: #1B3A41;
+  color: var(--secondary-color);
   margin: 10px 0;
 }
 
@@ -606,14 +622,14 @@ main {
 }
 #buttonShopping button:first-child {
   width: 35%;
-  background-color: #4B6A71;
-  color: #E7E7E7;
+  background-color: var(--primary-color);
+  color: var(--text-color);
   font-size: 40px;
 }
 #buttonShopping button:last-child {
   width: 60%;
-  color: #E7E7E7;
-  background-color: #1B3A41;
+  color: var(--text-color);
+  background-color: var(--secondary-color);
   font-size: 50px;
   position: relative;
 }
@@ -621,7 +637,7 @@ main {
   content: "";
   display: block;
   position: absolute;
-  background-color: #BF463B;
+  background-color: var(--accent-color);
   width: 70px;
   height: 70px;
   border-radius: 100%;
@@ -689,7 +705,7 @@ main {
   left: 50%;
   transform: translateX(-50%);
   bottom: 20px;
-  background-color: #BF463B;
+  background-color: var(--accent-color);
 }
 #afterShopping > div:first-child img {
   width: 25%;

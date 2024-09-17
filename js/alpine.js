@@ -18,7 +18,7 @@ const borne = () => {
 		moyenPaiement: false,
 		numero: 0,
 		etape: 0,
-		inactivityTimeout: null,
+		timer: null,
 
 		forfaits: [
 			{
@@ -243,12 +243,22 @@ const borne = () => {
 			console.log(this.produitDescription)
 		},
 
-		returnDescription() {
+		removeBackground() {
 			this.description = false;
+			this.pagePanier = false;
 		},
 
-		returnShopping() {
-			this.pagePanier = false;
+		openPanier() {
+			const buttonPanier = document.getElementById('buttonPanier');
+			if (this.nombrePanier) {
+				this.pagePanier = true;
+			} else {
+				buttonPanier.classList.add('cantOpen');
+				
+				setTimeout(() => {
+					buttonPanier.classList.remove('cantOpen');
+				}, 500);
+			}
 		},
 
 		reset() {
@@ -297,19 +307,20 @@ const borne = () => {
 		},
 
 
-		startInactivityTimer() {
+		// Inactivité
+		inactivityTimer() {
 			if (this.home != true) {
-				clearTimeout(this.inactivityTimeout);
-				this.inactivityTimeout = setTimeout(() => {
+				clearTimeout(this.timer);
+				this.timer = setTimeout(() => {
 					this.reset();
-				}, 30000);
+				}, 35000);
 			}
 		},
 
 		init() {
-			document.addEventListener('click', () => this.startInactivityTimer());
+			document.addEventListener('click', () => this.inactivityTimer());
 
-			window.addEventListener('load', () => this.startInactivityTimer());
+			window.addEventListener('load', () => this.inactivityTimer());
 		},
 	}
 }
