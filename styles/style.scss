@@ -764,18 +764,19 @@ main {
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
-	z-index: 1;
-	padding-top: 10vh;
+	height: calc(100% - 25vh);
+    z-index: 1;
+    padding-top: 25vh;
 
 	>div {
 		position: absolute;
-		top: 50%;
 		left: 50%;
-		transform: translate(-50%, -50%);
+		transform: translateX(-50%);
 	}
 
 	>div:first-child {
+		top: 50%;
+		transform: translate(-50%, -50%);
 		display: flex;
 		flex-direction: column;
 
@@ -817,8 +818,9 @@ main {
 
 	>div:nth-child(2),
 	>div:last-child {
-		width: max-content;
-		height: 50%;
+		width: 100%;
+		height: 100%;
+		position: relative;
 
 		p {
 			font-size: 2em;
@@ -826,8 +828,8 @@ main {
 		}
 
 		>img {
-			width: 60%;
-			margin: 100px auto;
+			width: 44%;
+    		margin: 140px auto;
 
 			position: relative;
 			left: 50%;
@@ -847,6 +849,21 @@ main {
 		}
 	}
 
+	>div:last-child {
+		h2 {
+			font-size: 4em;
+		}
+
+		h4 {
+			font-size: 3em;
+			margin: 150px auto;
+		}
+
+		p {
+			font-size: 3em;
+		}
+	}
+
 	#numberPurchase {
 		display: flex;
 		flex-direction: row;
@@ -854,7 +871,7 @@ main {
 		align-items: center;
 		column-gap: 50px;
 
-		font-size: 50px;
+		font-size: 90px;
 		margin: 100px;
 
 		img {
@@ -872,9 +889,9 @@ main {
 
 		animation: MoveUpDownArrow 1s cubic-bezier(0.4, 0, 1, 1) infinite;
 
-		position: relative;
+		position: absolute;
+		bottom: 70px;
 		left: 50%;
-		bottom: -25%;
 		transform: translateX(-50%);
 	}
 }
@@ -883,10 +900,10 @@ main {
 
 	0%,
 	100% {
-		bottom: -25%;
+		bottom: 70px;
 	}
 
 	50% {
-		bottom: -27%;
+		bottom: 55px;
 	}
 }
