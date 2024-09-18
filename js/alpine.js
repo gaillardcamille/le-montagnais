@@ -25,13 +25,13 @@ const borne = () => {
 				type: "Demi-journée",
 				prix: 18,
 				description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-				image: "img/cours-ski-1.webp"
+				image: "img/ImageTest.webp"
 			},
 			{
 				type: "Journée",
 				prix: 25,
 				description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-				image: "img/cours-ski-1.webp"
+				image: "img/FJourne.webp"
 			},
 			{
 				type: "Soirée",
@@ -43,7 +43,7 @@ const borne = () => {
 				type: "Hebdomadaire",
 				prix: 85,
 				description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-				image: "img/cours-ski-1.webp"
+				image: "img/hebdomadaire.webp"
 			},
 			{
 				type: "Mensuel",
@@ -173,8 +173,6 @@ const borne = () => {
 			this.tps = (5 * this.sous_total / 100).toFixed(2);
 			this.tvq = (9.975 * this.sous_total / 100).toFixed(2);
 			this.total = (parseFloat(this.sous_total) + parseFloat(this.tps) + parseFloat(this.tvq)).toFixed(2);
-
-			console.log(listeProduits)
 		},
 
 		nombreProduit(produit, nombre) {
@@ -231,7 +229,10 @@ const borne = () => {
 			}
 
 			if (this.nombrePanier == 0) {
+				const shoppingCart = document.getElementById('shoppingCart');
+				shoppingCart.classList.remove('open');
 				this.pagePanier = false;
+				
 			}
 
 			this.recupPanier();
@@ -245,21 +246,28 @@ const borne = () => {
 
 		removeBackground() {
 			this.description = false;
+			
+
+			const shoppingCart = document.getElementById('shoppingCart');
+			shoppingCart.classList.remove('open');
 			this.pagePanier = false;
 		},
 
 		openPanier() {
 			const buttonPanier = document.getElementById('buttonPanier');
+			const shoppingCart = document.getElementById('shoppingCart');
+			
 			if (this.nombrePanier) {
-				this.pagePanier = true;
+			  this.pagePanier = true;
+			  shoppingCart.classList.add('open');
 			} else {
-				buttonPanier.classList.add('cantOpen');
-				
-				setTimeout(() => {
-					buttonPanier.classList.remove('cantOpen');
-				}, 500);
+			  buttonPanier.classList.add('cantOpen');
+			  
+			  setTimeout(() => {
+				buttonPanier.classList.remove('cantOpen');
+			  }, 500);
 			}
-		},
+		  },
 
 		reset() {
 			localStorage.clear();
@@ -281,6 +289,15 @@ const borne = () => {
 		},
 
 		buy(int) {
+
+			if (int == 0) {
+				const shoppingCart = document.getElementById('shoppingCart');
+				shoppingCart.classList.remove('open');
+				this.pagePanier = false;
+				this.moyenPaiement = true;
+			}
+
+			
 			this.numero = Math.floor(Math.random() * 200) + 1;
 			console.log(this.numero)
 
@@ -308,19 +325,19 @@ const borne = () => {
 
 
 		// Inactivité
-		inactivityTimer() {
-			if (this.home != true) {
-				clearTimeout(this.timer);
-				this.timer = setTimeout(() => {
-					this.reset();
-				}, 35000);
-			}
-		},
+		// inactivityTimer() {
+		// 	if (this.home != true) {
+		// 		clearTimeout(this.timer);
+		// 		this.timer = setTimeout(() => {
+		// 			this.reset();
+		// 		}, 35000);
+		// 	}
+		// },
 
-		init() {
-			document.addEventListener('click', () => this.inactivityTimer());
+		// init() {
+		// 	document.addEventListener('click', () => this.inactivityTimer());
 
-			window.addEventListener('load', () => this.inactivityTimer());
-		},
+		// 	window.addEventListener('load', () => this.inactivityTimer());
+		// },
 	}
 }

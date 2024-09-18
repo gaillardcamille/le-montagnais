@@ -282,6 +282,26 @@ main {
 .listProducts {
 	margin: 0 7%;
 	height: 100%;
+	position: absolute;
+    width: calc(100% - 14%);
+	transition: all ease-in .8s;
+
+
+	&#productForfait {
+		left: 0;
+
+		&.leaveOne {
+			left: -110%;
+		}
+	}
+
+	&#productCours {
+		left: 110%;
+
+		&.leaveTwo {
+			left: 0;
+		}
+	}
 
 	h2 {
 		font-size: 4em;
@@ -370,6 +390,13 @@ main {
 					font-size: 24px;
 					background-color: #C0D5DD;
 					color: var(--secondary-color);
+					position: relative;
+					transition: all ease-in-out .1s;
+					top: 0;
+
+					&:active {
+						top: -2px;
+					}
 				}
 
 				&:last-child {
@@ -388,7 +415,7 @@ main {
 			left: -20px;
 			bottom: -20px;
 
-			background: linear-gradient(0deg, rgb(0, 0, 0) 35%, rgba(0, 0, 0, 0.7) 60%, rgba(0, 0, 0, 0) 90%);
+			background: linear-gradient(0deg, rgb(0, 0, 0) 40%, rgba(0, 0, 0, 0.7) 68%, rgba(0, 0, 0, 0) 90%);
 			width: calc(100% + 40px);
 			height: calc(100% + 65px);
 			border-radius: 0 0 25px 25px;
@@ -495,6 +522,8 @@ main {
 			background-color: var(--secondary-color);
 			font-size: 50px;
 			position: relative;
+			transition: all ease-in-out .1s;
+			top: 0;
 
 			&::before {
 				content: "";
@@ -522,6 +551,10 @@ main {
 				background-repeat: no-repeat;
 				background-position: center;
 			}
+
+			&:active {
+				top: -5px;
+			}
 		}
 	}
 }
@@ -547,13 +580,21 @@ main {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	transform: translate(-50%, -50%);
+	transform: translate(-50%, 200%);
 	max-height: 80%;
 	width: 85%;
 	background-color: var(--background-color);
 	z-index: 2;
 	padding: 30px 60px;
 	border-radius: 30px;
+
+	transition: transform 0.5s ease-in-out;
+	opacity: 0;
+
+	&.open {
+		transform: translate(-50%, -50%); 
+		opacity: 1;
+	  }
 
 	h2 {
 		font-size: 4em;

@@ -44,7 +44,7 @@
 
 		<main x-show="!home">
 
-			<section x-show="pageForfait" class="listProducts">
+			<section class="listProducts" id="productForfait" :class="{ 'leaveOne': !pageForfait }">
 				<h2>Forfaits</h2>
 
 				<div>
@@ -68,7 +68,7 @@
 				</div>
 			</section>
 
-			<section x-show="pageCours" class="listProducts">
+			<section class="listProducts" id="productCours" :class="{ 'leaveTwo': pageCours }">
 				<h2>Cours</h2>
 
 				<div>
@@ -114,7 +114,7 @@
 
 			<div x-show="pagePanier" @click="removeBackground()"
 				id="background"></div>
-			<section x-show="pagePanier" id="shoppingCart">
+			<section id="shoppingCart">
 				<h2>Panier</h2>
 
 				<div id="listShopping">
@@ -171,7 +171,7 @@
 
 				<div id="buttonShopping">
 					<button @click="removeBackground()">Retour</button>
-					<button id="buy" @click="moyenPaiement = true, pagePanier = false">Valider
+					<button id="buy" @click="buy(0)">Valider
 						le panier</button>
 				</div>
 

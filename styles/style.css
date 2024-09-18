@@ -242,6 +242,21 @@ main {
 .listProducts {
   margin: 0 7%;
   height: 100%;
+  position: absolute;
+  width: 86%;
+  transition: all ease-in 0.8s;
+}
+.listProducts#productForfait {
+  left: 0;
+}
+.listProducts#productForfait.leaveOne {
+  left: -110%;
+}
+.listProducts#productCours {
+  left: 110%;
+}
+.listProducts#productCours.leaveTwo {
+  left: 0;
 }
 .listProducts h2 {
   font-size: 4em;
@@ -323,6 +338,12 @@ main {
   font-size: 24px;
   background-color: #C0D5DD;
   color: var(--secondary-color);
+  position: relative;
+  transition: all ease-in-out 0.1s;
+  top: 0;
+}
+.blockProduct > div div:last-of-type button:first-child:active {
+  top: -2px;
 }
 .blockProduct > div div:last-of-type button:last-child {
   width: 25%;
@@ -336,7 +357,7 @@ main {
   position: absolute;
   left: -20px;
   bottom: -20px;
-  background: linear-gradient(0deg, rgb(0, 0, 0) 35%, rgba(0, 0, 0, 0.7) 60%, rgba(0, 0, 0, 0) 90%);
+  background: linear-gradient(0deg, rgb(0, 0, 0) 40%, rgba(0, 0, 0, 0.7) 68%, rgba(0, 0, 0, 0) 90%);
   width: calc(100% + 40px);
   height: calc(100% + 65px);
   border-radius: 0 0 25px 25px;
@@ -432,6 +453,8 @@ main {
   background-color: var(--secondary-color);
   font-size: 50px;
   position: relative;
+  transition: all ease-in-out 0.1s;
+  top: 0;
 }
 #buttonDescription button:last-child::before {
   content: "";
@@ -458,6 +481,9 @@ main {
   background-repeat: no-repeat;
   background-position: center;
 }
+#buttonDescription button:last-child:active {
+  top: -5px;
+}
 
 #background {
   background-color: var(--black-color);
@@ -476,13 +502,19 @@ main {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 200%);
   max-height: 80%;
   width: 85%;
   background-color: var(--background-color);
   z-index: 2;
   padding: 30px 60px;
   border-radius: 30px;
+  transition: transform 0.5s ease-in-out;
+  opacity: 0;
+}
+#shoppingCart.open {
+  transform: translate(-50%, -50%);
+  opacity: 1;
 }
 #shoppingCart h2 {
   font-size: 4em;
