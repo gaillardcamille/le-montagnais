@@ -97,7 +97,7 @@ body {
 			height: auto;
 			aspect-ratio: 1;
 			border-radius: 100%;
-			background-image: url("../img/tap.png");
+			background-image: url(../img/tap.png);
 
 			position: absolute;
 			top: 0%;
@@ -250,6 +250,14 @@ footer {
 			font-weight: 700;
 		}
 
+		img {
+			width: 45%;
+		}
+
+		p {
+			color: var(--text-color);
+		}
+
 		&.cantOpen {
 			animation: cantOpen 0.5s ease-in-out;
 		}
@@ -284,7 +292,7 @@ main {
 	height: 100%;
 	position: absolute;
     width: calc(100% - 14%);
-	transition: all ease-in .8s;
+	transition: all ease-out .65s;
 
 
 	&#productForfait {
@@ -542,14 +550,15 @@ main {
 				content: "";
 				display: block;
 				position: absolute;
-				background-image: url(../img/logo_panier.png);
-				width: 45px;
-				height: 45px;
+				background-image: url(../img/icons/panier.webp);
+				width: 53px;
+				height: 49px;
 				right: 0;
 				top: 0;
 				transform: translate(33%, -33%);
 				background-repeat: no-repeat;
 				background-position: center;
+				background-size: contain;
 			}
 
 			&:active {
@@ -663,14 +672,14 @@ main {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		color: var(--white-color);
+		color: #8EADB4;
 
 		&:first-of-type {
-			background-color: #8EADB4;
+			border: 4px solid #8EADB4;
 		}
 
 		&:last-of-type {
-			background-color: var(--primary-color);
+			border: 4px solid #8EADB4;
 		}
 	}
 

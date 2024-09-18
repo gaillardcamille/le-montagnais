@@ -24,85 +24,86 @@ const borne = () => {
 			{
 				type: "Demi-journée",
 				prix: 18,
-				description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-				image: "img/ImageTest.webp"
+				description: "Profitez d'une expérience immersive durant une demi-journée. Idéal pour découvrir nos activités et vous initier dans un cadre convivial et détendu.",
+				image: "img/forfaits/demi-journee.webp"
 			},
 			{
 				type: "Journée",
 				prix: 25,
-				description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-				image: "img/FJourne.webp"
+				description: "Passez une journée complète à explorer et vous divertir. Ce forfait vous offre l'accès à toutes nos installations et à des activités variées pour un maximum de plaisir.",
+				image: "img/forfaits/journee.webp"
 			},
 			{
 				type: "Soirée",
 				prix: 15,
-				description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-				image: "img/cours-ski-1.webp"
+				description: "Vivez une soirée agréable avec notre forfait soirée. Parfait pour se détendre après une longue journée, ce forfait inclut des activités nocturnes et des animations.",
+				image: "img/forfaits/soiree.webp"
 			},
 			{
 				type: "Hebdomadaire",
 				prix: 85,
-				description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-				image: "img/hebdomadaire.webp"
+				description: "Bénéficiez d'un accès illimité pendant une semaine. Parfait pour ceux qui souhaitent s'engager dans une routine régulière tout en profitant de nos services.",
+				image: "img/forfaits/hebdomadaire.webp"
 			},
 			{
 				type: "Mensuel",
 				prix: 357,
-				description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-				image: "img/cours-ski-1.webp"
+				description: "Optez pour notre forfait mensuel et profitez d'un accès complet à toutes nos activités et installations, idéal pour un engagement à long terme.",
+				image: "img/forfaits/mensuel.webp"
 			},
 			{
 				type: "Annuel",
 				prix: 575,
-				description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-				image: "img/cours-ski-1.webp"
+				description: "Profitez de notre forfait annuel pour un accès illimité tout au long de l'année. C'est l'option la plus économique pour ceux qui souhaitent tirer le meilleur parti de nos services.",
+				image: "img/forfaits/annuel.webp"
 			}
 		],
-
+		
 		lecons: [
 			{
 				heure: 1,
 				niveau: "Débutant",
 				prix: 20,
-				description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-				image: "img/debutant.webp"
+				description: "Initiez-vous à nos activités avec cette leçon d'une heure adaptée aux débutants. Parfaite pour acquérir les bases et découvrir votre potentiel.",
+				image: "img/cours/debutant1h.webp"
 			},
 			{
 				heure: 2,
 				niveau: "Débutant",
 				prix: 35,
-				description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-				image: "img/cours-ski-1.webp"
+				description: "Profitez d'une leçon de deux heures pour approfondir vos connaissances et améliorer vos compétences. Idéal pour les novices désireux d'aller plus loin.",
+				image: "img/cours/debutant2h.webp"
 			},
 			{
 				heure: 1,
 				niveau: "Intermédiaire",
 				prix: 25,
-				description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-				image: "img/cours-ski-1.webp"
+				description: "Développez vos compétences avec cette leçon d'une heure pour le niveau intermédiaire. Adaptée aux élèves ayant déjà quelques bases.",
+				image: "img/cours/intermediaire1h.webp"
 			},
 			{
 				heure: 2,
 				niveau: "Intermédiaire",
 				prix: 40,
-				description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-				image: "img/cours-ski-1.webp"
+				description: "Renforcez vos acquis et explorez de nouvelles techniques avec cette leçon de deux heures. Idéal pour les élèves souhaitant passer au niveau supérieur.",
+				image: "img/cours/intermediaire2h.webp"
 			},
 			{
 				heure: 1,
 				niveau: "Avancé",
 				prix: 20,
-				description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-				image: "img/avance.webp"
+				description: "Cette leçon d'une heure est conçue pour les élèves avancés souhaitant perfectionner leurs techniques et stratégies dans un cadre stimulant.",
+				image: "img/cours/avance1h.webp"
 			},
 			{
 				heure: 2,
 				niveau: "Avancé",
 				prix: 50,
-				description: "Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum ",
-				image: "img/cours-ski-1.webp"
+				description: "Poussez vos limites avec cette leçon intensive de deux heures. Parfaite pour celles et ceux qui veulent atteindre l'excellence dans leur pratique.",
+				image: "img/cours/avance2h.webp"
 			}
 		],
+		
 
 		// Fonctions
 		ajouterPanier(forfait, lecon) {
@@ -311,7 +312,7 @@ const borne = () => {
 						this.reset();
 					}, 5000);
 
-				}, 10000);
+				}, 7000);
 			}
 
 			if (int == 2) {
@@ -325,19 +326,19 @@ const borne = () => {
 
 
 		// Inactivité
-		// inactivityTimer() {
-		// 	if (this.home != true) {
-		// 		clearTimeout(this.timer);
-		// 		this.timer = setTimeout(() => {
-		// 			this.reset();
-		// 		}, 35000);
-		// 	}
-		// },
+		inactivityTimer() {
+			if (this.home != true) {
+				clearTimeout(this.timer);
+				this.timer = setTimeout(() => {
+					this.reset();
+				}, 35000);
+			}
+		},
 
-		// init() {
-		// 	document.addEventListener('click', () => this.inactivityTimer());
+		init() {
+			document.addEventListener('click', () => this.inactivityTimer());
 
-		// 	window.addEventListener('load', () => this.inactivityTimer());
-		// },
+			window.addEventListener('load', () => this.inactivityTimer());
+		},
 	}
 }

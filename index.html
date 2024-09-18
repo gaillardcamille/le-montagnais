@@ -23,7 +23,7 @@
 
 		<template x-if="home">
 			<header id="homePage" @click="home = false; pageForfait = true">
-				<h1><img src="img/light-text-transparent.png"
+				<h1><img src="img/logo_noir.webp"
 						alt="Logo de la station de ski Le Montagnais"></h1>
 
 				<!-- <img src="img/Montagnev3.gif"> -->
@@ -37,7 +37,7 @@
 
 		<template x-if="!home">
 			<header id="othersPage">
-				<h1><img src="img/light-text-transparent.png"
+				<h1><img src="img/logo_noir.webp"
 						alt="Logo de la station de ski Le Montagnais"></h1>
 			</header>
 		</template>
@@ -216,19 +216,19 @@
 		<footer x-show="!home">
 			<div :id="pageCours? 'selectCours' : ''">
 				<button @click="pageForfait = true, pageCours = false, pagePanier = false">
-					<img src="img/forfait.png" alt="Accéder aux produits des forfaits">
-					Forfait
+					<img src="img/icons/forfaits.webp" alt="Accéder aux produits des forfaits">
+					Forfaits
 				</button>
 				<button @click="pageForfait = false, pageCours = true, pagePanier = false">
-					<img src="img/cours.png" alt="Accéder aux produits des cours">
+					<img src="img/icons/cours.webp" alt="Accéder aux produits des cours">
 					Cours
 				</button>
 			</div>
 
 			<button id="buttonPanier" @click="openPanier()">
 				<span id="nombrePanier" x-text="nombrePanier"></span>
-				<img src="img/panier.png" alt="Accéder au panier">
-				Panier
+				<img src="img/icons/panier.webp" alt="Accéder au panier">
+				<p>Panier</p>
 			</button>
 		</footer>
 
