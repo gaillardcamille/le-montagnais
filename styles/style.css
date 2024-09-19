@@ -180,12 +180,12 @@ footer div::after {
   height: 100%;
   border-radius: 25px;
   background-color: var(--primary-color);
-  transition: all ease-out 0.2s;
+  transition: all ease-out 0.65s;
 }
 footer #selectCours::after {
   left: 50%;
   right: 0;
-  transition: all ease-out 0.2s;
+  transition: all ease-out 0.65s;
 }
 footer button {
   all: unset;
@@ -374,7 +374,7 @@ main {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 200%);
   height: -moz-fit-content;
   height: fit-content;
   width: 85%;
@@ -382,6 +382,12 @@ main {
   z-index: 2;
   padding: 30px 60px;
   border-radius: 30px;
+  transition: transform 0.5s ease-in-out;
+  opacity: 0;
+}
+#productDescription.open {
+  transform: translate(-50%, -50%);
+  opacity: 1;
 }
 #productDescription img {
   width: 100%;
@@ -826,4 +832,40 @@ main {
   50% {
     bottom: 55px;
   }
+}
+#inactivityPopup {
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 80%;
+  width: 85%;
+  background-color: var(--background-color);
+  z-index: 2;
+  padding: 50px 40px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#inactivityPopup p:first-child {
+  text-align: center;
+  font-size: 3.5em;
+  margin-bottom: 50px;
+}
+#inactivityPopup button {
+  height: 90px;
+  border-radius: 18px;
+  border: unset;
+  width: 35%;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-size: 40px;
+}
+#inactivityPopup p:last-child {
+  margin-top: 20px;
+  font-size: 1.5em;
+  color: var(--accent-color);
+  font-weight: 700;
 }/*# sourceMappingURL=style.css.map */

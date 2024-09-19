@@ -19,6 +19,9 @@ const borne = () => {
 		numero: 0,
 		etape: 0,
 		timer: null,
+		popupTimer: null,
+		countdown: 15,
+		inactivityPopup: false,
 
 		forfaits: [
 			{
@@ -58,7 +61,7 @@ const borne = () => {
 				image: "img/forfaits/annuel.webp"
 			}
 		],
-		
+
 		lecons: [
 			{
 				heure: 1,
@@ -86,7 +89,7 @@ const borne = () => {
 				niveau: "Intermédiaire",
 				prix: 40,
 				description: "Renforcez vos acquis et explorez de nouvelles techniques avec cette leçon de deux heures. Idéal pour les élèves souhaitant passer au niveau supérieur.",
-				image: "img/cours/intermediaire2h.webp"
+				image: "img/cours/test.jpg"
 			},
 			{
 				heure: 1,
@@ -103,7 +106,7 @@ const borne = () => {
 				image: "img/cours/avance2h.webp"
 			}
 		],
-		
+
 
 		// Fonctions
 		ajouterPanier(forfait, lecon) {
@@ -233,45 +236,51 @@ const borne = () => {
 				const shoppingCart = document.getElementById('shoppingCart');
 				shoppingCart.classList.remove('open');
 				this.pagePanier = false;
-				
+
 			}
 
 			this.recupPanier();
 		},
 
 		showDescription(produit) {
+			const productDescription = document.getElementById('productDescription');
+
 			this.description = true;
 			this.produitDescription = produit;
-			console.log(this.produitDescription)
+			productDescription.classList.add('open');
 		},
 
 		removeBackground() {
-			this.description = false;
-			
-
 			const shoppingCart = document.getElementById('shoppingCart');
 			shoppingCart.classList.remove('open');
 			this.pagePanier = false;
+
+			const productDescription = document.getElementById('productDescription');
+			productDescription.classList.remove('open');
+			this.description = false;
 		},
+
 
 		openPanier() {
 			const buttonPanier = document.getElementById('buttonPanier');
 			const shoppingCart = document.getElementById('shoppingCart');
-			
+
 			if (this.nombrePanier) {
-			  this.pagePanier = true;
-			  shoppingCart.classList.add('open');
+				this.pagePanier = true;
+				shoppingCart.classList.add('open');
 			} else {
-			  buttonPanier.classList.add('cantOpen');
-			  
-			  setTimeout(() => {
-				buttonPanier.classList.remove('cantOpen');
-			  }, 500);
+				buttonPanier.classList.add('cantOpen');
+
+				setTimeout(() => {
+					buttonPanier.classList.remove('cantOpen');
+				}, 500);
 			}
-		  },
+		},
 
 		reset() {
 			localStorage.clear();
+			productDescription.classList.remove('open');
+			shoppingCart.classList.remove('open');
 
 			this.home = true;
 			this.pageForfait = false;
@@ -287,6 +296,10 @@ const borne = () => {
 			this.total = 0;
 			this.moyenPaiement = false;
 			this.etape = 0;
+			this.timer = null;
+			this.popupTimer = null;
+			this.countdown = 15;
+			this.inactivityPopup = false;
 		},
 
 		buy(int) {
@@ -298,7 +311,7 @@ const borne = () => {
 				this.moyenPaiement = true;
 			}
 
-			
+
 			this.numero = Math.floor(Math.random() * 200) + 1;
 			console.log(this.numero)
 
@@ -330,15 +343,39 @@ const borne = () => {
 			if (this.home != true) {
 				clearTimeout(this.timer);
 				this.timer = setTimeout(() => {
-					this.reset();
-				}, 35000);
+					this.inactivityPopup = true;
+					this.countdown = 15;
+					this.startPopupTimer();
+				}, 5000);
+			}
+		},
+		
+		startPopupTimer() {
+			if (this.inactivityPopup) {
+				clearTimeout(this.popupTimer);
+				this.popupTimer = setInterval(() => {
+					if (this.countdown > 0) {
+						this.countdown--;
+					} else {
+						clearInterval(this.popupTimer);
+						this.reset();
+					}
+				}, 1000);
 			}
 		},
 
 		init() {
-			document.addEventListener('click', () => this.inactivityTimer());
+			document.addEventListener('click', () => {
+				this.inactivityTimer();
+				if (this.inactivityPopup) {
+					this.inactivityPopup = false;
+					this.countdown = 15;
+					this.startPopupTimer();
+				}
+			});
 
 			window.addEventListener('load', () => this.inactivityTimer());
-		},
+		}
+
 	}
 }
