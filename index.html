@@ -44,9 +44,12 @@
 
 		<main x-show="!home">
 
-			<section class="listProducts" id="productForfait" :class="{ 'leaveOne': !pageForfait }">
-				<h2>Forfaits</h2>
+			<div id="title" :class="pageCours? 'selectCours' : ''">
+				<h2 :id="pageForfait? 'activate' : ''"  @click="pageForfait = true, pageCours = false, pagePanier = false">Forfaits</h2>
+				<h2 :id="pageCours? 'activate' : ''"  @click="pageForfait = false, pageCours = true, pagePanier = false">Cours</h2>
+			</div>
 
+			<section class="listProducts" id="productForfait" :class="{ 'leaveOne': !pageForfait }">
 				<div>
 					<template x-for="forfait in forfaits">
 						<article class="blockProduct">
@@ -69,8 +72,6 @@
 			</section>
 
 			<section class="listProducts" id="productCours" :class="{ 'leaveTwo': pageCours }">
-				<h2>Cours</h2>
-
 				<div>
 					<template x-for="lecon in lecons">
 						<article class="blockProduct">
@@ -103,6 +104,7 @@
 					x-text="produitDescription.type ? ('Passe ' + produitDescription.type) : ('Cours ' + produitDescription.niveau + ' ' + produitDescription.heure + 'h')"></h3>
 				<h4 x-text="produitDescription.prix + '.00$'"></h4>
 				<p x-text="produitDescription.description"></p>
+				<p x-text="produitDescription.nombre"></p>
 
 				<div id="buttonDescription">
 					<button @click="removeBackground()">Retour</button>
@@ -137,8 +139,7 @@
 									<p x-text="produit.prix * produit.nombre + '.00$'"></p>
 								</div>
 
-								<a @click="nombreProduit(produit, 2)" class="deleteAll">Tout
-									Supprimer</a>
+								<a @click="nombreProduit(produit, 2)" class="deleteAll">Supprimer le produit</a>
 							</div>
 
 						</article>

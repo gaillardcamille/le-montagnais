@@ -245,6 +245,43 @@ main {
   height: 65%;
 }
 
+#title {
+  margin: 0 7%;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+#title h2 {
+  font-size: 4em;
+  position: relative;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-bottom: 5%;
+  opacity: 0.5;
+  transition: all ease-out 0.65s;
+  cursor: pointer;
+}
+#title h2#activate {
+  opacity: 1;
+}
+#title::after {
+  content: "";
+  display: block;
+  width: 10%;
+  height: 7px;
+  border-radius: 7px;
+  background-color: var(--accent-color);
+  position: absolute;
+  bottom: 30px;
+  left: 15%;
+  right: 0;
+  transition: all ease-out 0.65s;
+}
+#title.selectCours::after {
+  left: 90%;
+  right: 0;
+}
+
 .listProducts {
   margin: 0 7%;
   height: 100%;
@@ -264,24 +301,6 @@ main {
 .listProducts#productCours.leaveTwo {
   left: 0;
 }
-.listProducts h2 {
-  font-size: 4em;
-  position: relative;
-  width: -moz-fit-content;
-  width: fit-content;
-  margin-bottom: 5%;
-}
-.listProducts h2::after {
-  content: "";
-  display: block;
-  width: 50%;
-  height: 7px;
-  border-radius: 7px;
-  background-color: var(--accent-color);
-  position: absolute;
-  right: 0px;
-  bottom: -10px;
-}
 .listProducts > div {
   display: flex;
   flex-wrap: wrap;
@@ -295,6 +314,7 @@ main {
   border-radius: 25px;
   position: relative;
   padding: 20px;
+  cursor: pointer;
 }
 .blockProduct img {
   position: absolute;
@@ -338,6 +358,7 @@ main {
   height: 55px;
   border-radius: 14px;
   border: unset;
+  cursor: pointer;
 }
 .blockProduct > div div:last-of-type button:first-child {
   width: 70%;
@@ -452,6 +473,7 @@ main {
   height: 90px;
   border-radius: 18px;
   border: unset;
+  cursor: pointer;
 }
 #buttonDescription button:first-child {
   width: 35%;
@@ -591,6 +613,7 @@ main {
   justify-content: center;
   align-items: center;
   color: #8EADB4;
+  cursor: pointer;
 }
 .detailsPurchase a:first-of-type {
   border: 4px solid #8EADB4;
@@ -664,6 +687,7 @@ main {
   height: 90px;
   border-radius: 18px;
   border: unset;
+  cursor: pointer;
 }
 #buttonShopping button:first-child {
   width: 35%;
@@ -740,6 +764,7 @@ main {
   font-size: 2em;
   font-weight: 700;
   position: relative;
+  cursor: pointer;
 }
 #afterShopping > div:first-child button:first-child::after {
   content: "";
