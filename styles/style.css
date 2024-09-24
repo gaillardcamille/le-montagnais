@@ -316,6 +316,23 @@ main {
   padding: 20px;
   cursor: pointer;
 }
+.blockProduct span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(40%, -40%);
+  background-color: var(--accent-color);
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  font-size: 42px;
+  font-weight: 700;
+  z-index: 2;
+  color: var(--white-color);
+}
 .blockProduct img {
   position: absolute;
   top: 0;
@@ -490,31 +507,20 @@ main {
   transition: all ease-in-out 0.1s;
   top: 0;
 }
-#buttonDescription button:last-child::before {
-  content: "";
-  display: block;
+#buttonDescription button:last-child span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  background-color: var(--accent-color);
-  width: 70px;
-  height: 70px;
-  border-radius: 100%;
   right: 0;
   top: 0;
   transform: translate(40%, -40%);
-}
-#buttonDescription button:last-child::after {
-  content: "";
-  display: block;
-  position: absolute;
-  background-image: url(../img/icons/panier.webp);
-  width: 53px;
-  height: 49px;
-  right: 0;
-  top: 0;
-  transform: translate(33%, -33%);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+  background-color: var(--accent-color);
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  font-size: 42px;
+  font-weight: 700;
 }
 #buttonDescription button:last-child:active {
   top: -5px;

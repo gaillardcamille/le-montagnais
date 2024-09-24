@@ -53,6 +53,9 @@
 				<div>
 					<template x-for="forfait in forfaits">
 						<article class="blockProduct">
+							
+							<span x-show="forfait.nombre > 0" x-text="forfait.nombre"></span>
+
 							<img :src="forfait.image" alt="Image d'illustration"
 								@click="showDescription(forfait)">
 							<div>
@@ -61,9 +64,8 @@
 									<h3 x-text="forfait.type"></h3>
 								</div>
 								<div>
-									<button @click="ajouterPanier(forfait, 0)">Ajouter au panier</button>
-									<button @click="showDescription(forfait)"><i
-											class="fa-solid fa-magnifying-glass"></i></button>
+									<button @click="ajouterPanier(forfait, 0), recupPanier()">Ajouter au panier</button>
+									<button @click="showDescription(forfait)"><i class="fa-solid fa-info"></i></button>
 								</div>
 							</div>
 						</article>
@@ -75,6 +77,7 @@
 				<div>
 					<template x-for="lecon in lecons">
 						<article class="blockProduct">
+							<span x-show="lecon.nombre > 0" x-text="lecon.nombre"></span>
 							<img :src="lecon.image" alt="Image d'illustration"
 								@click="showDescription(lecon)">
 							<div>
@@ -84,8 +87,7 @@
 								</div>
 								<div>
 									<button @click="ajouterPanier(0, lecon)">Ajouter au panier</button>
-									<button @click="showDescription(lecon)"><i
-											class="fa-solid fa-magnifying-glass"></i></button>
+									<button @click="showDescription(lecon)"><i class="fa-solid fa-info"></i></button>
 								</div>
 							</div>
 
@@ -104,13 +106,14 @@
 					x-text="produitDescription.type ? ('Passe ' + produitDescription.type) : ('Cours ' + produitDescription.niveau + ' ' + produitDescription.heure + 'h')"></h3>
 				<h4 x-text="produitDescription.prix + '.00$'"></h4>
 				<p x-text="produitDescription.description"></p>
-				<p x-text="produitDescription.nombre"></p>
 
 				<div id="buttonDescription">
 					<button @click="removeBackground()">Retour</button>
 					<button
 						@click="produitDescription.type ? ajouterPanier(produitDescription, 0) : ajouterPanier(0, produitDescription)">Ajouter
-						au panier</button>
+						au panier
+						<span x-show="produitDescription.nombre > 0" x-text="produitDescription.nombre"></span>
+					</button>
 				</div>
 			</section>
 

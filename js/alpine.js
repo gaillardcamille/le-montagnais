@@ -98,7 +98,7 @@ const borne = () => {
 				niveau: "Intermédiaire",
 				prix: 40,
 				description: "Renforcez vos acquis et explorez de nouvelles techniques avec cette leçon de deux heures. Idéal pour les élèves souhaitant passer au niveau supérieur.",
-				image: "img/cours/test.jpg",
+				image: "img/cours/intermediaire2h.webp",
 				nombre: 0,
 			},
 			{
@@ -118,6 +118,7 @@ const borne = () => {
 				nombre: 0,
 			}
 		],
+
 
 
 		// Fonctions
@@ -198,15 +199,18 @@ const borne = () => {
 		},
 
 		nombreProduit(produit, nombre) {
-
 			if (produit.type == "Forfait") {
+				let forfaitCorrespondant = this.forfaits.find(forfait => forfait.type === produit.niveau);
+
 				if (nombre != 2) {
 					newProduit = JSON.parse(localStorage.getItem("f_" + produit.niveau));
 
 					newProduit.nombre += nombre;
+					forfaitCorrespondant.nombre += nombre;
 
 					if (newProduit.nombre == 0) {
 						localStorage.removeItem("f_" + produit.niveau);
+						forfaitCorrespondant.nombre = 0;
 					}
 					else {
 						localStorage.setItem("f_" + produit.niveau, JSON.stringify(newProduit))
@@ -214,17 +218,26 @@ const borne = () => {
 				}
 				else {
 					localStorage.removeItem("f_" + produit.niveau);
+					forfaitCorrespondant.nombre = 0;
+				}
+
+				if (forfaitCorrespondant.nombre < 0) {
+					forfaitCorrespondant.nombre = 0;
 				}
 			}
 
 			if (produit.type == "Cours") {
+				let leconCorrespondante = this.lecons.find(lecon => lecon.niveau === produit.niveau && lecon.heure === produit.heure);
+
 				if (nombre != 2) {
 					newProduit = JSON.parse(localStorage.getItem("c_" + produit.niveau + produit.heure));
 
 					newProduit.nombre += nombre;
+					leconCorrespondante.nombre += nombre;
 
 					if (newProduit.nombre == 0) {
 						localStorage.removeItem("c_" + produit.niveau + produit.heure);
+						leconCorrespondante.nombre = 0;
 					}
 					else {
 						localStorage.setItem("c_" + produit.niveau + produit.heure, JSON.stringify(newProduit))
@@ -232,6 +245,11 @@ const borne = () => {
 				}
 				else {
 					localStorage.removeItem("c_" + produit.niveau + produit.heure);
+					leconCorrespondante.nombre = 0;
+				}
+
+				if (leconCorrespondante.nombre < 0) {
+					leconCorrespondante.nombre = 0;
 				}
 			}
 
@@ -260,15 +278,6 @@ const borne = () => {
 			this.recupPanier();
 		},
 
-		showDescription(produit) {
-			const productDescription = document.getElementById('productDescription');
-
-			this.description = true;
-			this.produitDescription = produit;
-			productDescription.classList.add('open');
-			console.log(produit)
-		},
-
 		removeBackground() {
 			const shoppingCart = document.getElementById('shoppingCart');
 			shoppingCart.classList.remove('open');
@@ -277,6 +286,14 @@ const borne = () => {
 			const productDescription = document.getElementById('productDescription');
 			productDescription.classList.remove('open');
 			this.description = false;
+		},
+
+		showDescription(produit) {
+			const productDescription = document.getElementById('productDescription');
+
+			this.description = true;
+			this.produitDescription = produit;
+			productDescription.classList.add('open');
 		},
 
 		openPanier() {
@@ -321,7 +338,6 @@ const borne = () => {
 		},
 
 		buy(int) {
-
 			if (int == 0) {
 				const shoppingCart = document.getElementById('shoppingCart');
 				shoppingCart.classList.remove('open');
@@ -329,9 +345,7 @@ const borne = () => {
 				this.moyenPaiement = true;
 			}
 
-
 			this.numero = Math.floor(Math.random() * 200) + 1;
-			console.log(this.numero)
 
 			if (int == 1) {
 				this.etape = 1;
