@@ -335,6 +335,14 @@ const borne = () => {
 			this.popupTimer = null;
 			this.countdown = 15;
 			this.inactivityPopup = false;
+
+			this.forfaits.forEach(forfait => {
+				forfait.nombre = 0;
+			});
+		
+			this.lecons.forEach(lecon => {
+				lecon.nombre = 0;
+			});
 		},
 
 		buy(int) {
@@ -371,45 +379,45 @@ const borne = () => {
 
 
 		// Inactivité
-		inactivityTimer() {
-			if (this.home != true) {
-				clearTimeout(this.timer);
-				this.timer = setTimeout(() => {
-					this.inactivityPopup = true;
-					this.countdown = 15;
-					this.startPopupTimer();
-				}, 40000);
-			}
-		},
+		// inactivityTimer() {
+		// 	if (this.home != true) {
+		// 		clearTimeout(this.timer);
+		// 		this.timer = setTimeout(() => {
+		// 			this.inactivityPopup = true;
+		// 			this.countdown = 15;
+		// 			this.startPopupTimer();
+		// 		}, 40000);
+		// 	}
+		// },
 
-		startPopupTimer() {
-			if (this.inactivityPopup) {
-				clearInterval(this.popupTimer);
-				this.popupTimer = setInterval(() => {
-					if (this.countdown > 0) {
-						this.countdown--;
-					} else {
-						clearInterval(this.popupTimer);
-						this.reset();
-					}
-				}, 1000);
-			}
-		},
+		// startPopupTimer() {
+		// 	if (this.inactivityPopup) {
+		// 		clearInterval(this.popupTimer);
+		// 		this.popupTimer = setInterval(() => {
+		// 			if (this.countdown > 0) {
+		// 				this.countdown--;
+		// 			} else {
+		// 				clearInterval(this.popupTimer);
+		// 				this.reset();
+		// 			}
+		// 		}, 1000);
+		// 	}
+		// },
 
-		init() {
-			document.addEventListener('click', () => {
-				if (this.inactivityPopup) {
-					this.countdown = 15;
-					this.inactivityPopup = false;
-					clearInterval(this.popupTimer);
-				}
-				this.inactivityTimer();
-			});
+		// init() {
+		// 	document.addEventListener('click', () => {
+		// 		if (this.inactivityPopup) {
+		// 			this.countdown = 15;
+		// 			this.inactivityPopup = false;
+		// 			clearInterval(this.popupTimer);
+		// 		}
+		// 		this.inactivityTimer();
+		// 	});
 
-			window.addEventListener('load', () => {
-				this.inactivityTimer();
-			});
-		}
+		// 	window.addEventListener('load', () => {
+		// 		this.inactivityTimer();
+		// 	});
+		// }
 
 	}
 }

@@ -8,14 +8,14 @@ html,
 body {
   position: relative;
   font-size: 1em;
-  background-color: #21bb4f;
-  aspect-ratio: 9/16;
+  background-color: var(--background-color);
   height: 100%;
   overflow: hidden;
 }
 
 body {
   background-color: var(--background-color);
+  margin: auto;
 }
 
 #homePage {
@@ -53,6 +53,7 @@ body {
   width: -moz-fit-content;
   width: fit-content;
   margin: 4% auto 0;
+  text-align: center;
 }
 #homePage button p::after {
   content: "";
@@ -87,11 +88,13 @@ body {
   aspect-ratio: 1;
   border-radius: 100%;
   background-image: url(../img/tap.png);
+  background-position: center;
   position: absolute;
   top: 0%;
-  left: 51%;
-  transform: translate(-50%, -48%);
+  left: 50%;
+  transform: translate(-50%, -50%);
   animation: MoveUpDown 1s cubic-bezier(0.4, 0, 1, 1) infinite;
+  background-size: contain;
 }
 #homePage > video {
   position: absolute;
@@ -106,6 +109,16 @@ body {
   }
   50% {
     top: 4%;
+  }
+}
+@media screen and (max-height: 1300px) {
+  #homePage button p {
+    font-size: 50px;
+  }
+}
+@media screen and (max-height: 1050px) {
+  #homePage button p {
+    font-size: 35px;
   }
 }
 #othersPage {
@@ -241,6 +254,54 @@ footer #buttonPanier.cantOpen {
   }
 }
 
+@media screen and (max-width: 900px) {
+  #othersPage {
+    height: 13%;
+  }
+  #othersPage h1 {
+    width: 25%;
+  }
+}
+@media screen and (max-width: 800px) {
+  #title h2 {
+    font-size: 3em;
+  }
+  footer div {
+    width: 60%;
+    border-radius: 13px;
+  }
+  footer div::after {
+    border-radius: 13px;
+  }
+  footer div button {
+    font-size: 25px;
+  }
+  footer #buttonPanier {
+    width: 35%;
+    border-radius: 13px;
+  }
+  footer #buttonPanier span {
+    right: -22px;
+    top: -22px;
+    width: 50px;
+    font-size: 35px;
+  }
+  footer #buttonPanier p {
+    font-size: 25px;
+    margin-top: -10px;
+  }
+}
+@media screen and (max-width: 350px) {
+  #title h2 {
+    font-size: 2.5em;
+  }
+  footer div button {
+    font-size: 20px;
+  }
+  footer #buttonPanier p {
+    font-size: 20px;
+  }
+}
 main {
   height: 65%;
 }
@@ -330,7 +391,7 @@ main {
   border-radius: 100%;
   font-size: 42px;
   font-weight: 700;
-  z-index: 2;
+  z-index: 1;
   color: var(--white-color);
 }
 .blockProduct img {
@@ -407,6 +468,94 @@ main {
   border-radius: 0 0 25px 25px;
 }
 
+@media screen and (max-width: 730px) {
+  #title {
+    margin: 0 3%;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  #title h2 {
+    font-size: 2.5em;
+  }
+}
+@media screen and (max-width: 730px) {
+  .listProducts {
+    margin: 0 3%;
+    width: 94%;
+    height: calc(100% - 69px - 15% - 13%);
+  }
+  .listProducts > div {
+    -moz-column-gap: 10px;
+         column-gap: 10px;
+  }
+  .blockProduct {
+    width: calc(50% - 50px);
+  }
+  .blockProduct > div div:first-of-type h4 {
+    font-size: 1.5em;
+  }
+  .blockProduct > div div:first-of-type h3 {
+    font-size: 1em;
+    text-align: right;
+  }
+  .blockProduct span {
+    width: 41px;
+    height: 41px;
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .listProducts {
+    height: calc(100% - 80px - 15% - 13%);
+    margin: 0 1% 0 5%;
+  }
+  .listProducts > div {
+    display: block;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 18px 10px 0px 0px;
+  }
+  .blockProduct {
+    width: calc(100% - 50px);
+    aspect-ratio: 7/4;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 15px;
+  }
+  .blockProduct img {
+    border-radius: 15px;
+  }
+  .blockProduct > div::before {
+    border-radius: 0 0 15px 15px;
+  }
+  .blockProduct > div div:last-of-type button {
+    border-radius: 8px;
+  }
+  .blockProduct > div div:last-of-type button:first-child {
+    font-size: 20px;
+  }
+  .blockProduct > div div:first-of-type h4 {
+    font-size: 2em;
+  }
+  .blockProduct > div div:first-of-type h3 {
+    font-size: 1.5em;
+  }
+}
+@media screen and (max-width: 350px) {
+  .blockProduct > div div:last-of-type button {
+    height: 45px;
+  }
+  .blockProduct > div div:last-of-type button:first-child {
+    font-size: 17px;
+  }
+  .blockProduct > div div:first-of-type h4 {
+    font-size: 1.5em;
+  }
+  .blockProduct > div div:first-of-type h3 {
+    font-size: 1em;
+  }
+}
 #productDescription {
   margin: auto;
   position: absolute;

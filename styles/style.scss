@@ -8,14 +8,14 @@ html,
 body {
 	position: relative;
 	font-size: 1em;
-	background-color: #21bb4f;
-	aspect-ratio: 9 / 16;
+	background-color: var(--background-color);
 	height: 100%;
 	overflow: hidden;
 }
 
 body {
 	background-color: var(--background-color);
+	margin: auto;
 }
 
 //////////////////////
@@ -59,6 +59,7 @@ body {
 			position: relative;
 			width: fit-content;
 			margin: 4% auto 0;
+			text-align: center;
 
 			&::after {
 				content: "";
@@ -98,12 +99,14 @@ body {
 			aspect-ratio: 1;
 			border-radius: 100%;
 			background-image: url(../img/tap.png);
+			background-position: center;
 
 			position: absolute;
 			top: 0%;
-			left: 51%;
-			transform: translate(-50%, -48%);
+			left: 50%;
+			transform: translate(-50%, -50%);
 			animation: MoveUpDown 1s cubic-bezier(0.4, 0, 1, 1) infinite;
+			background-size: contain;
 		}
 	}
 
@@ -121,6 +124,18 @@ body {
 	}
 	50% {
 		top: 4%;
+	}
+}
+
+@media screen and (max-height: 1300px) {
+	#homePage button p {
+		font-size: 50px;
+	}
+}
+
+@media screen and (max-height: 1050px) {
+	#homePage button p {
+		font-size: 35px;
 	}
 }
 
@@ -279,6 +294,74 @@ footer {
 	}
 }
 
+@media screen and (max-width: 900px) {
+	#othersPage {
+		height: 13%;
+
+		h1 {
+			width: 25%;
+		}
+	}
+}
+
+@media screen and (max-width: 800px) {
+	#title h2 {
+		font-size: 3em;
+	}
+
+	footer {
+		div {
+			width: 60%;
+			border-radius: 13px;
+
+			&::after {
+				border-radius: 13px;
+			}
+
+			button {
+				font-size: 25px;
+			}
+		}
+
+		#buttonPanier {
+			width: 35%;
+			border-radius: 13px;
+
+			span {
+				right: -22px;
+				top: -22px;
+				width: 50px;
+				font-size: 35px;
+			}
+
+			p {
+				font-size: 25px;
+				margin-top: -10px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 350px) {
+	#title h2 {
+		font-size: 2.5em;
+	}
+
+	footer {
+		div {
+			button {
+				font-size: 20px;
+			}
+		}
+
+		#buttonPanier {
+			p {
+				font-size: 20px;
+			}
+		}
+	}
+}
+
 /////////////////////////
 /// Pages de produits ///
 /////////////////////////
@@ -384,7 +467,7 @@ main {
 
 		font-size: 42px;
 		font-weight: 700;
-		z-index: 2;
+		z-index: 1;
 		color: var(--white-color);
 	}
 
@@ -470,6 +553,126 @@ main {
 			width: calc(100% + 40px);
 			height: calc(100% + 65px);
 			border-radius: 0 0 25px 25px;
+		}
+	}
+}
+
+@media screen and (max-width: 730px) {
+	#title {
+		margin: 0 3%;
+		height: fit-content;
+
+		h2 {
+			font-size: 2.5em;
+		}
+	}
+}
+
+@media screen and (max-width: 730px) {
+	.listProducts {
+		margin: 0 3%;
+		width: 94%;
+		height: calc(100% - 69px - 15% - 13%);
+
+		> div {
+			column-gap: 10px;
+		}
+	}
+
+	.blockProduct {
+		width: calc(50% - 50px);
+
+		> div div:first-of-type {
+			h4 {
+				font-size: 1.5em;
+			}
+
+			h3 {
+				font-size: 1em;
+				text-align: right;
+			}
+		}
+
+		span {
+			width: 41px;
+			height: 41px;
+			font-size: 26px;
+		}
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.listProducts {
+		height: calc(100% - 80px - 15% - 13%);
+		margin: 0 1% 0 5%;
+
+		> div {
+			display: block;
+			height: 100%;
+			overflow-y: scroll;
+			overflow-x: hidden;
+			padding: 18px 10px 0px 0px;
+		}
+	}
+
+	.blockProduct {
+		width: calc(100% - 50px);
+		aspect-ratio: 7 / 4;
+		height: auto;
+		margin-bottom: 20px;
+
+		border-radius: 15px;
+
+		img {
+			border-radius: 15px;
+		}
+
+		> div {
+
+			&::before {
+				border-radius: 0 0 15px 15px;
+			}
+			div:last-of-type button {
+				border-radius: 8px;
+				
+				&:first-child {
+				font-size: 20px;
+				}
+			}
+
+			div:first-of-type {
+				h4 {
+					font-size: 2em;
+				}
+
+				h3 {
+					font-size: 1.5em;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 350px) {
+
+	.blockProduct > div {
+		div:last-of-type button {
+			height: 45px;
+			
+			&:first-child {
+			font-size: 17px;
+			}
+		}
+
+
+		div:first-of-type {
+			h4 {
+				font-size: 1.5em;
+			}
+
+			h3 {
+				font-size: 1em;
+			}
 		}
 	}
 }
