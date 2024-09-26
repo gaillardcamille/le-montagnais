@@ -83,7 +83,6 @@ body {
 			aspect-ratio: 1;
 			border-radius: 100%;
 			background-color: var(--secondary-color);
-
 			position: absolute;
 			top: 0;
 			left: 50%;
@@ -100,7 +99,6 @@ body {
 			border-radius: 100%;
 			background-image: url(../img/tap.png);
 			background-position: center;
-
 			position: absolute;
 			top: 0%;
 			left: 50%;
@@ -110,7 +108,7 @@ body {
 		}
 	}
 
-	> video {
+	>video {
 		position: absolute;
 		bottom: 0%;
 		width: 100%;
@@ -119,9 +117,12 @@ body {
 }
 
 @keyframes MoveUpDown {
-	0%, 100% {
+
+	0%,
+	100% {
 		top: 0;
 	}
+
 	50% {
 		top: 4%;
 	}
@@ -133,7 +134,7 @@ body {
 	}
 }
 
-@media screen and (max-height: 1050px) {
+@media screen and (max-height: 1024px) {
 	#homePage button p {
 		font-size: 35px;
 	}
@@ -151,7 +152,6 @@ body {
 
 	h1 {
 		width: 38%;
-
 		position: relative;
 		left: 50%;
 		top: 10%;
@@ -166,15 +166,15 @@ body {
 
 footer {
 	height: 15%;
+	min-height: 100px;
 	width: calc(100% - 14%);
 	background-color: #B2C7CF;
 	border-radius: 25px 25px 0 0;
 	padding: 0 7%;
-
 	position: fixed;
 	bottom: 0;
 	left: 0;
-
+	z-index: 1;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -188,7 +188,6 @@ footer {
 		background-color: #96B3BE;
 		border-radius: 25px;
 		align-items: center;
-
 		position: relative;
 
 		button {
@@ -276,27 +275,33 @@ footer {
 		&.cantOpen {
 			animation: cantOpen 0.5s ease-in-out;
 		}
-	
-		@keyframes cantOpen {
-			0%, 100% {
-				transform: translateX(0);
-			}
-			25% {
-				transform: translateX(-10px);
-			}
-			50% {
-				transform: translateX(10px);
-			}
-			75% {
-				transform: translateX(-10px);
-			}
-		}
 	}
 }
 
-@media screen and (max-width: 900px) {
+@keyframes cantOpen {
+
+	0%,
+	100% {
+		transform: translateX(0);
+	}
+
+	25% {
+		transform: translateX(-10px);
+	}
+
+	50% {
+		transform: translateX(10px);
+	}
+
+	75% {
+		transform: translateX(-10px);
+	}
+}
+
+@media screen and (max-width: 1024px) {
 	#othersPage {
 		height: 13%;
+		margin-bottom: 2%;
 
 		h1 {
 			width: 25%;
@@ -304,11 +309,7 @@ footer {
 	}
 }
 
-@media screen and (max-width: 800px) {
-	#title h2 {
-		font-size: 3em;
-	}
-
+@media screen and (max-width: 855px) {
 	footer {
 		div {
 			width: 60%;
@@ -342,13 +343,23 @@ footer {
 	}
 }
 
-@media screen and (max-width: 350px) {
-	#title h2 {
-		font-size: 2.5em;
-	}
+@media screen and (max-width: 540px) {
+	#othersPage {
+		height: 20%;
 
+		h1 {
+			width: 32%;
+		}
+	}
+}
+
+@media screen and (max-width: 430px) {
 	footer {
 		div {
+			img {
+				width: 45%;
+			}
+
 			button {
 				font-size: 20px;
 			}
@@ -357,6 +368,17 @@ footer {
 		#buttonPanier {
 			p {
 				font-size: 20px;
+			}
+
+			span {
+				right: -10px;
+				top: -10px;
+				width: 33px;
+				font-size: 23px;
+			}
+
+			footer #buttonPanier img {
+				width: 40%;
 			}
 		}
 	}
@@ -375,7 +397,7 @@ main {
 	display: flex;
 	justify-content: space-between;
 	position: relative;
-	
+
 	h2 {
 		font-size: 4em;
 		position: relative;
@@ -397,7 +419,6 @@ main {
 		height: 7px;
 		border-radius: 7px;
 		background-color: var(--accent-color);
-
 		position: absolute;
 		bottom: 30px;
 		left: 15%;
@@ -415,7 +436,7 @@ main {
 	margin: 0 7%;
 	height: 100%;
 	position: absolute;
-    width: calc(100% - 14%);
+	width: calc(100% - 14%);
 	transition: all ease-out .65s;
 
 	&#productForfait {
@@ -454,17 +475,14 @@ main {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-
 		position: absolute;
 		right: 0;
 		top: 0;
 		transform: translate(40%, -40%);
-
 		background-color: var(--accent-color);
 		width: 60px;
 		height: 60px;
 		border-radius: 100%;
-
 		font-size: 42px;
 		font-weight: 700;
 		z-index: 1;
@@ -548,7 +566,6 @@ main {
 			position: absolute;
 			left: -20px;
 			bottom: -20px;
-
 			background: linear-gradient(0deg, rgb(0, 0, 0) 40%, rgba(0, 0, 0, 0.7) 68%, rgba(0, 0, 0, 0) 90%);
 			width: calc(100% + 40px);
 			height: calc(100% + 65px);
@@ -557,7 +574,13 @@ main {
 	}
 }
 
-@media screen and (max-width: 730px) {
+@media screen and (max-width: 855px) {
+	#title h2 {
+		font-size: 3em;
+	}
+}
+
+@media screen and (max-width: 768px) {
 	#title {
 		margin: 0 3%;
 		height: fit-content;
@@ -565,16 +588,26 @@ main {
 		h2 {
 			font-size: 2.5em;
 		}
-	}
-}
 
-@media screen and (max-width: 730px) {
+		&::after {
+			bottom: 23px;
+			left: 15%;
+			width: 12%;
+			height: 4px;
+		}
+
+		&.selectCours::after {
+			left: 88%;
+			right: 0;
+		}
+	}
+
 	.listProducts {
 		margin: 0 3%;
 		width: 94%;
 		height: calc(100% - 69px - 15% - 13%);
 
-		> div {
+		>div {
 			column-gap: 10px;
 		}
 	}
@@ -582,7 +615,7 @@ main {
 	.blockProduct {
 		width: calc(50% - 50px);
 
-		> div div:first-of-type {
+		>div div:first-of-type {
 			h4 {
 				font-size: 1.5em;
 			}
@@ -601,12 +634,16 @@ main {
 	}
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 540px) {
+	#title {
+		display: none;
+	}
+
 	.listProducts {
-		height: calc(100% - 80px - 15% - 13%);
+		height: calc(100% - 15% - 21%);
 		margin: 0 1% 0 5%;
 
-		> div {
+		>div {
 			display: block;
 			height: 100%;
 			overflow-y: scroll;
@@ -627,16 +664,17 @@ main {
 			border-radius: 15px;
 		}
 
-		> div {
+		>div {
 
 			&::before {
 				border-radius: 0 0 15px 15px;
 			}
+
 			div:last-of-type button {
 				border-radius: 8px;
-				
+
 				&:first-child {
-				font-size: 20px;
+					font-size: 20px;
 				}
 			}
 
@@ -653,17 +691,20 @@ main {
 	}
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 430px) {
+	.listProducts {
+		height: calc(100% - 100px - 21%);
+		margin: 0 1% 0 5%;
+	}
 
-	.blockProduct > div {
+	.blockProduct>div {
 		div:last-of-type button {
 			height: 45px;
-			
+
 			&:first-child {
-			font-size: 17px;
+				font-size: 17px;
 			}
 		}
-
 
 		div:first-of-type {
 			h4 {
@@ -693,14 +734,13 @@ main {
 	z-index: 2;
 	padding: 30px 60px;
 	border-radius: 30px;
-
 	transition: transform 0.5s ease-in-out;
 	opacity: 0;
 
 	&.open {
-		transform: translate(-50%, -50%); 
+		transform: translate(-50%, -50%);
 		opacity: 1;
-	  }
+	}
 
 	img {
 		width: 100%;
@@ -764,7 +804,7 @@ main {
 #buttonDescription {
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0 10px;
+	margin-bottom: 10px;
 
 	button {
 		height: 90px;
@@ -792,17 +832,14 @@ main {
 				display: flex;
 				justify-content: center;
 				align-items: center;
-
 				position: absolute;
 				right: 0;
 				top: 0;
 				transform: translate(40%, -40%);
-
 				background-color: var(--accent-color);
 				width: 60px;
 				height: 60px;
 				border-radius: 100%;
-
 				font-size: 42px;
 				font-weight: 700;
 			}
@@ -826,6 +863,111 @@ main {
 	opacity: 0.4;
 }
 
+@media screen and (max-width: 855px) {
+	#productDescription {
+		padding: 20px 40px;
+		width: calc(95% - 80px);
+		max-height: 90%;
+
+		p {
+			margin-bottom: 60px;
+		}
+	}
+
+	#buttonDescription {
+		button {
+			height: 75px;
+			border-radius: 11px;
+
+			&:last-child,
+			&:first-child {
+				font-size: 32px;
+
+				span {
+					width: 40px;
+					height: 40px;
+					font-size: 26px;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 540px) {
+	#productDescription {
+		padding: 20px 25px;
+		width: calc(95% - 50px);
+
+		p {
+			margin-bottom: 25px;
+			font-size: 15px;
+		}
+
+		h2 {
+			font-size: 2em;
+
+			&::after {
+				width: 7px;
+				height: 7px;
+				right: -8px;
+				bottom: 7px;
+			}
+		}
+
+		h3 {
+			font-size: 1.8em;
+			margin-bottom: 10px;
+		}
+
+		h4 {
+			font-size: 1.6em;
+			margin-bottom: 10px;
+		}
+
+		img {
+			margin: 29px 0 19px;
+		}
+	}
+
+	#buttonDescription button {
+		height: 59px;
+		border-radius: 7px;
+
+		&:last-child,
+		&:first-child {
+			font-size: 25px;
+
+			span {
+				width: 33px;
+				height: 33px;
+				font-size: 20px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 430px) {
+	#productDescription {
+		h3 {
+			font-size: 1.4em;
+		}
+
+		h4 {
+			font-size: 1.2em;
+		}
+	}
+
+	#buttonDescription button {
+		height: 50px;
+		border-radius: 7px;
+
+		&:last-child,
+		&:first-child {
+			font-size: 20px;
+		}
+	}
+}
+
 ////////////////////
 /// Paiement 1er ///
 ////////////////////
@@ -842,14 +984,13 @@ main {
 	z-index: 2;
 	padding: 30px 60px;
 	border-radius: 30px;
-
 	transition: transform 0.5s ease-in-out;
 	opacity: 0;
 
 	&.open {
-		transform: translate(-50%, -50%); 
+		transform: translate(-50%, -50%);
 		opacity: 1;
-	  }
+	}
 
 	h2 {
 		font-size: 4em;
@@ -921,13 +1062,8 @@ main {
 		color: #8EADB4;
 		cursor: pointer;
 
-		&:first-of-type {
-			border: 4px solid #8EADB4;
-		}
 
-		&:last-of-type {
-			border: 4px solid #8EADB4;
-		}
+		border: 4px solid #8EADB4;
 	}
 
 	i {
@@ -1051,6 +1187,255 @@ main {
 	}
 }
 
+@media screen and (max-width: 1024px) {
+	#shoppingCart {
+		max-height: 90%;
+	}
+}
+
+@media screen and (max-width: 855px) {
+	#shoppingCart {
+		padding: 20px 40px;
+		width: calc(95% - 80px);
+	}
+}
+
+@media screen and (max-width: 768px) {
+	#shoppingCart {
+		article {
+			h3 {
+				font-size: 2em;
+				font-weight: 100;
+				color: var(--secondary-color);
+			}
+
+			img {
+				width: 43%;
+				height: 180px;
+			}
+		}
+	}
+
+	.detailsPurchase {
+		margin: 14px 0 31px;
+
+		a {
+			width: 30px;
+			height: 30px;
+			border: 2px solid #8EADB4;
+		}
+
+		i {
+			font-size: 1.2em;
+		}
+
+		span {
+			font-size: 1.5em;
+		}
+
+		p {
+			font-size: 1.8em;
+		}
+	}
+
+	.deleteAll {
+		opacity: 0.4;
+		font-size: 1.5em;
+	}
+
+	#detailsShopping {
+		h3 {
+			width: 35%;
+			font-size: 1.8em;
+		}
+
+		>div {
+			width: 63%;
+
+			div {
+				margin-bottom: 10px;
+
+				p {
+					font-size: 1.4em;
+				}
+
+				h4 {
+					font-size: 2em;
+				}
+			}
+		}
+	}
+
+	#buttonShopping {
+		margin: 10px 0 10px;
+
+		button {
+			height: 70px;
+			border-radius: 7px;
+
+			&:last-child,
+			&:first-child {
+				font-size: 30px;
+
+				&::before {
+					width: 56px;
+					height: 56px;
+				}
+
+				&::after {
+					width: 40px;
+					height: 40px;
+					background-size: contain;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 540px) {
+	#shoppingCart {
+		article {
+			margin: 23px 0;
+
+			h3 {
+				font-size: 1.8em;
+			}
+
+			img {
+				display: none;
+			}
+
+			>div {
+				width: 100%;
+			}
+		}
+
+		h2 {
+			font-size: 2em;
+			margin-bottom: 5px;
+
+			&::after {
+				width: 7px;
+				height: 7px;
+				right: -8px;
+				bottom: 7px;
+			}
+		}
+	}
+
+	.detailsPurchase {
+		margin: 10px 0;
+
+		a {
+			width: 25px;
+			height: 25px;
+		}
+
+		span {
+			font-size: 1.4em;
+		}
+
+		p {
+			font-size: 1.5em;
+		}
+	}
+
+	.deleteAll {
+		font-size: 1.3em;
+	}
+
+	#detailsShopping {
+		margin-top: 26px;
+
+		h3 {
+			font-size: 1.1em;
+		}
+
+		>div div {
+			margin-bottom: 8px;
+
+			p {
+				font-size: 1.15em;
+			}
+
+			h4 {
+				font-size: 1.5em;
+				margin: 0;
+			}
+		}
+	}
+
+	#buttonShopping {
+		button {
+			height: 50px;
+
+			&:last-child,
+			&:first-child {
+				font-size: 20px;
+
+				&::before {
+					width: 35px;
+					height: 35px;
+				}
+
+				&::after {
+					width: 28px;
+					height: 28px;
+					background-size: contain;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 430px) {
+	#shoppingCart {
+		article {
+			margin: 15px 0;
+
+			h3 {
+				font-size: 1.4em;
+			}
+		}
+	}
+
+	#detailsShopping {
+		justify-content: end;
+		margin-top: 10px;
+
+		h3 {
+			display: none;
+		}
+
+		>div {
+			width: 100%;
+
+			div p {
+				font-size: 1em;
+			}
+		}
+	}
+
+	#buttonShopping {
+		button {
+			height: 50px;
+
+			&:last-child,
+			&:first-child {
+				font-size: 20px;
+
+				&::before {
+					display: none;
+				}
+
+				&::after {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
 ///////////////////
 /// Paiement 2e ///
 ///////////////////
@@ -1062,8 +1447,8 @@ main {
 	left: 0;
 	width: 100%;
 	height: calc(100% - 25vh);
-    z-index: 1;
-    padding-top: 25vh;
+	z-index: 1;
+	padding-top: 25vh;
 
 	>div {
 		position: absolute;
@@ -1127,8 +1512,7 @@ main {
 
 		>img {
 			width: 44%;
-    		margin: 140px auto;
-
+			margin: 140px auto;
 			position: relative;
 			left: 50%;
 			transform: translateX(-50%);
@@ -1168,7 +1552,6 @@ main {
 		justify-content: center;
 		align-items: center;
 		column-gap: 50px;
-
 		font-size: 90px;
 		margin: 100px;
 
@@ -1184,9 +1567,7 @@ main {
 	i {
 		font-size: 20em;
 		color: #8EADB4;
-
 		animation: MoveUpDownArrow 1s cubic-bezier(0.4, 0, 1, 1) infinite;
-
 		position: absolute;
 		bottom: 70px;
 		left: 50%;
@@ -1206,9 +1587,151 @@ main {
 	}
 }
 
+@media screen and (max-width: 1024px) {
+	#afterShopping i {
+		font-size: 14em;
+	}
+}
 
-///////////////////////////
+@media screen and (max-width: 850px) {
+	#afterShopping {
+		>div:first-child button {
+			height: 20vh;
+		}
 
+		>div:nth-child(2),
+		>div:last-child {
+			h2 {
+				font-size: 2.3em;
+			}
+
+			p {
+				font-size: 1.5em;
+			}
+
+			h4 {
+				font-size: 1.8em;
+				margin: 78px auto;
+			}
+		}
+
+		>div:nth-child(2) {
+			img {
+				margin: 80px auto;
+				width: 40%;
+			}
+		}
+
+		i {
+			font-size: 8em;
+			transform: translate(-50%, 30%);
+		}
+
+		#numberPurchase {
+			margin: 40px 80px;
+		}
+	}
+}
+
+@media screen and (max-width: 540px) {
+	#afterShopping {
+		>div:first-child {
+			top: 60%;
+
+			button {
+				height: 28vh;
+				margin: 30px 10px;
+				aspect-ratio: 1.8 / 1;
+				font-size: 1.5em;
+
+				&:first-child::after {
+					height: 3px;
+					bottom: 12px;
+				}
+			}
+
+			img {
+				margin-top: 10px;
+			}
+		}
+
+		>div:nth-child(2),
+		>div:last-child {
+			h2 {
+				font-size: 2em;
+			}
+
+			p {
+				font-size: 1.4em;
+			}
+
+			h4 {
+				font-size: 1.5em;
+				margin: 45px auto;
+			}
+		}
+
+		>div:nth-child(2) {
+			img {
+				margin: 45px auto;
+				width: 40%;
+			}
+		}
+
+		i {
+			font-size: 6em;
+			transform: translate(-50%, 40%);
+		}
+
+		#numberPurchase {
+			font-size: 50px;
+
+			img {
+				width: 100px;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 430px) {
+	#afterShopping {
+		>div:first-child {
+			width: 90%;
+
+			button {
+				aspect-ratio: unset;
+
+			}
+		}
+
+		>div:nth-child(2),
+		>div:last-child {
+			h2 {
+				font-size: 1.5em;
+			}
+
+			p {
+				font-size: 18px;
+			}
+		}
+
+		>div:nth-child(2) {
+			img {
+				margin: 20px auto;
+				width: 40%;
+			}
+		}
+
+		i {
+			font-size: 3em;
+			transform: translate(-50%, 100%);
+		}
+	}
+}
+
+///////////////////////
+/// Inactivty popup ///
+///////////////////////
 
 #inactivityPopup {
 	margin: auto;
@@ -1221,13 +1744,12 @@ main {
 	background-color: var(--background-color);
 	z-index: 2;
 	padding: 50px 40px;
-    border-radius: 20px;
-
+	border-radius: 20px;
 	display: flex;
-    flex-direction: column;
+	flex-direction: column;
 	align-items: center;
 
-	p:first-child{
+	p:first-child {
 		text-align: center;
 		font-size: 3.5em;
 		margin-bottom: 50px;
@@ -1248,5 +1770,41 @@ main {
 		font-size: 1.5em;
 		color: var(--accent-color);
 		font-weight: 700;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	#inactivityPopup {
+		width: calc(90% - 40px);
+		padding: 30px 20px;
+		border-radius: 10px;
+
+		p:first-child {
+			font-size: 2.5em;
+		}
+
+		button {
+			height: 70px;
+			border-radius: 15px;
+			font-size: 20px;
+		}
+
+		p:last-child {
+			font-size: 1.5em;
+		}
+	}
+}
+
+@media screen and (max-width: 540px) {
+	#inactivityPopup {
+
+		p:first-child {
+			font-size: 2em;
+			margin-bottom: 20px;
+		}
+
+		button {
+			height: 60px;
+		}
 	}
 }

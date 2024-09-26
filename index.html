@@ -224,7 +224,7 @@
 
 		</main>
 
-		<footer x-show="!home">
+		<footer x-show="!home && !moyenPaiement">
 			<div :id="pageCours? 'selectCours' : ''">
 				<button @click="pageForfait = true, pageCours = false, pagePanier = false">
 					<img src="img/icons/forfaits.webp" alt="Accéder aux produits des forfaits">

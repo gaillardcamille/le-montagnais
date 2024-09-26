@@ -116,7 +116,7 @@ body {
     font-size: 50px;
   }
 }
-@media screen and (max-height: 1050px) {
+@media screen and (max-height: 1024px) {
   #homePage button p {
     font-size: 35px;
   }
@@ -141,6 +141,7 @@ body {
 
 footer {
   height: 15%;
+  min-height: 100px;
   width: 86%;
   background-color: #B2C7CF;
   border-radius: 25px 25px 0 0;
@@ -148,6 +149,7 @@ footer {
   position: fixed;
   bottom: 0;
   left: 0;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -239,6 +241,7 @@ footer #buttonPanier p {
 footer #buttonPanier.cantOpen {
   animation: cantOpen 0.5s ease-in-out;
 }
+
 @keyframes cantOpen {
   0%, 100% {
     transform: translateX(0);
@@ -253,19 +256,16 @@ footer #buttonPanier.cantOpen {
     transform: translateX(-10px);
   }
 }
-
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1024px) {
   #othersPage {
     height: 13%;
+    margin-bottom: 2%;
   }
   #othersPage h1 {
     width: 25%;
   }
 }
-@media screen and (max-width: 800px) {
-  #title h2 {
-    font-size: 3em;
-  }
+@media screen and (max-width: 855px) {
   footer div {
     width: 60%;
     border-radius: 13px;
@@ -291,15 +291,32 @@ footer #buttonPanier.cantOpen {
     margin-top: -10px;
   }
 }
-@media screen and (max-width: 350px) {
-  #title h2 {
-    font-size: 2.5em;
+@media screen and (max-width: 540px) {
+  #othersPage {
+    height: 20%;
+  }
+  #othersPage h1 {
+    width: 32%;
+  }
+}
+@media screen and (max-width: 430px) {
+  footer div img {
+    width: 45%;
   }
   footer div button {
     font-size: 20px;
   }
   footer #buttonPanier p {
     font-size: 20px;
+  }
+  footer #buttonPanier span {
+    right: -10px;
+    top: -10px;
+    width: 33px;
+    font-size: 23px;
+  }
+  footer #buttonPanier footer #buttonPanier img {
+    width: 40%;
   }
 }
 main {
@@ -468,7 +485,12 @@ main {
   border-radius: 0 0 25px 25px;
 }
 
-@media screen and (max-width: 730px) {
+@media screen and (max-width: 855px) {
+  #title h2 {
+    font-size: 3em;
+  }
+}
+@media screen and (max-width: 768px) {
   #title {
     margin: 0 3%;
     height: -moz-fit-content;
@@ -477,8 +499,16 @@ main {
   #title h2 {
     font-size: 2.5em;
   }
-}
-@media screen and (max-width: 730px) {
+  #title::after {
+    bottom: 23px;
+    left: 15%;
+    width: 12%;
+    height: 4px;
+  }
+  #title.selectCours::after {
+    left: 88%;
+    right: 0;
+  }
   .listProducts {
     margin: 0 3%;
     width: 94%;
@@ -504,9 +534,12 @@ main {
     font-size: 26px;
   }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 540px) {
+  #title {
+    display: none;
+  }
   .listProducts {
-    height: calc(100% - 80px - 15% - 13%);
+    height: 64%;
     margin: 0 1% 0 5%;
   }
   .listProducts > div {
@@ -542,7 +575,11 @@ main {
     font-size: 1.5em;
   }
 }
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 430px) {
+  .listProducts {
+    height: calc(100% - 100px - 21%);
+    margin: 0 1% 0 5%;
+  }
   .blockProduct > div div:last-of-type button {
     height: 45px;
   }
@@ -633,7 +670,7 @@ main {
 #buttonDescription {
   display: flex;
   justify-content: space-between;
-  margin: 50px 0 10px;
+  margin-bottom: 10px;
 }
 #buttonDescription button {
   height: 90px;
@@ -687,6 +724,85 @@ main {
   opacity: 0.4;
 }
 
+@media screen and (max-width: 855px) {
+  #productDescription {
+    padding: 20px 40px;
+    width: calc(95% - 80px);
+    max-height: 90%;
+  }
+  #productDescription p {
+    margin-bottom: 60px;
+  }
+  #buttonDescription button {
+    height: 75px;
+    border-radius: 11px;
+  }
+  #buttonDescription button:last-child, #buttonDescription button:first-child {
+    font-size: 32px;
+  }
+  #buttonDescription button:last-child span, #buttonDescription button:first-child span {
+    width: 40px;
+    height: 40px;
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 540px) {
+  #productDescription {
+    padding: 20px 25px;
+    width: calc(95% - 50px);
+  }
+  #productDescription p {
+    margin-bottom: 25px;
+    font-size: 15px;
+  }
+  #productDescription h2 {
+    font-size: 2em;
+  }
+  #productDescription h2::after {
+    width: 7px;
+    height: 7px;
+    right: -8px;
+    bottom: 7px;
+  }
+  #productDescription h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+  }
+  #productDescription h4 {
+    font-size: 1.6em;
+    margin-bottom: 10px;
+  }
+  #productDescription img {
+    margin: 29px 0 19px;
+  }
+  #buttonDescription button {
+    height: 59px;
+    border-radius: 7px;
+  }
+  #buttonDescription button:last-child, #buttonDescription button:first-child {
+    font-size: 25px;
+  }
+  #buttonDescription button:last-child span, #buttonDescription button:first-child span {
+    width: 33px;
+    height: 33px;
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 430px) {
+  #productDescription h3 {
+    font-size: 1.4em;
+  }
+  #productDescription h4 {
+    font-size: 1.2em;
+  }
+  #buttonDescription button {
+    height: 50px;
+    border-radius: 7px;
+  }
+  #buttonDescription button:last-child, #buttonDescription button:first-child {
+    font-size: 20px;
+  }
+}
 #shoppingCart {
   margin: auto;
   position: absolute;
@@ -769,11 +885,6 @@ main {
   align-items: center;
   color: #8EADB4;
   cursor: pointer;
-}
-.detailsPurchase a:first-of-type {
-  border: 4px solid #8EADB4;
-}
-.detailsPurchase a:last-of-type {
   border: 4px solid #8EADB4;
 }
 .detailsPurchase i {
@@ -883,6 +994,188 @@ main {
   background-position: center;
 }
 
+@media screen and (max-width: 1024px) {
+  #shoppingCart {
+    max-height: 90%;
+  }
+}
+@media screen and (max-width: 855px) {
+  #shoppingCart {
+    padding: 20px 40px;
+    width: calc(95% - 80px);
+  }
+}
+@media screen and (max-width: 768px) {
+  #shoppingCart article h3 {
+    font-size: 2em;
+    font-weight: 100;
+    color: var(--secondary-color);
+  }
+  #shoppingCart article img {
+    width: 43%;
+    height: 180px;
+  }
+  .detailsPurchase {
+    margin: 14px 0 31px;
+  }
+  .detailsPurchase a {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #8EADB4;
+  }
+  .detailsPurchase i {
+    font-size: 1.2em;
+  }
+  .detailsPurchase span {
+    font-size: 1.5em;
+  }
+  .detailsPurchase p {
+    font-size: 1.8em;
+  }
+  .deleteAll {
+    opacity: 0.4;
+    font-size: 1.5em;
+  }
+  #detailsShopping h3 {
+    width: 35%;
+    font-size: 1.8em;
+  }
+  #detailsShopping > div {
+    width: 63%;
+  }
+  #detailsShopping > div div {
+    margin-bottom: 10px;
+  }
+  #detailsShopping > div div p {
+    font-size: 1.4em;
+  }
+  #detailsShopping > div div h4 {
+    font-size: 2em;
+  }
+  #buttonShopping {
+    margin: 10px 0 10px;
+  }
+  #buttonShopping button {
+    height: 70px;
+    border-radius: 7px;
+  }
+  #buttonShopping button:last-child, #buttonShopping button:first-child {
+    font-size: 30px;
+  }
+  #buttonShopping button:last-child::before, #buttonShopping button:first-child::before {
+    width: 56px;
+    height: 56px;
+  }
+  #buttonShopping button:last-child::after, #buttonShopping button:first-child::after {
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+  }
+}
+@media screen and (max-width: 540px) {
+  #shoppingCart article {
+    margin: 23px 0;
+  }
+  #shoppingCart article h3 {
+    font-size: 1.8em;
+  }
+  #shoppingCart article img {
+    display: none;
+  }
+  #shoppingCart article > div {
+    width: 100%;
+  }
+  #shoppingCart h2 {
+    font-size: 2em;
+    margin-bottom: 5px;
+  }
+  #shoppingCart h2::after {
+    width: 7px;
+    height: 7px;
+    right: -8px;
+    bottom: 7px;
+  }
+  .detailsPurchase {
+    margin: 10px 0;
+  }
+  .detailsPurchase a {
+    width: 25px;
+    height: 25px;
+  }
+  .detailsPurchase span {
+    font-size: 1.4em;
+  }
+  .detailsPurchase p {
+    font-size: 1.5em;
+  }
+  .deleteAll {
+    font-size: 1.3em;
+  }
+  #detailsShopping {
+    margin-top: 26px;
+  }
+  #detailsShopping h3 {
+    font-size: 1.1em;
+  }
+  #detailsShopping > div div {
+    margin-bottom: 8px;
+  }
+  #detailsShopping > div div p {
+    font-size: 1.15em;
+  }
+  #detailsShopping > div div h4 {
+    font-size: 1.5em;
+    margin: 0;
+  }
+  #buttonShopping button {
+    height: 50px;
+  }
+  #buttonShopping button:last-child, #buttonShopping button:first-child {
+    font-size: 20px;
+  }
+  #buttonShopping button:last-child::before, #buttonShopping button:first-child::before {
+    width: 35px;
+    height: 35px;
+  }
+  #buttonShopping button:last-child::after, #buttonShopping button:first-child::after {
+    width: 28px;
+    height: 28px;
+    background-size: contain;
+  }
+}
+@media screen and (max-width: 430px) {
+  #shoppingCart article {
+    margin: 15px 0;
+  }
+  #shoppingCart article h3 {
+    font-size: 1.4em;
+  }
+  #detailsShopping {
+    justify-content: end;
+    margin-top: 10px;
+  }
+  #detailsShopping h3 {
+    display: none;
+  }
+  #detailsShopping > div {
+    width: 100%;
+  }
+  #detailsShopping > div div p {
+    font-size: 1em;
+  }
+  #buttonShopping button {
+    height: 50px;
+  }
+  #buttonShopping button:last-child, #buttonShopping button:first-child {
+    font-size: 20px;
+  }
+  #buttonShopping button:last-child::before, #buttonShopping button:first-child::before {
+    display: none;
+  }
+  #buttonShopping button:last-child::after, #buttonShopping button:first-child::after {
+    display: none;
+  }
+}
 #afterShopping {
   background-color: #B2C7CF;
   position: absolute;
@@ -1013,6 +1306,109 @@ main {
     bottom: 55px;
   }
 }
+@media screen and (max-width: 1024px) {
+  #afterShopping i {
+    font-size: 14em;
+  }
+}
+@media screen and (max-width: 850px) {
+  #afterShopping > div:first-child button {
+    height: 20vh;
+  }
+  #afterShopping > div:nth-child(2) h2,
+  #afterShopping > div:last-child h2 {
+    font-size: 2.3em;
+  }
+  #afterShopping > div:nth-child(2) p,
+  #afterShopping > div:last-child p {
+    font-size: 1.5em;
+  }
+  #afterShopping > div:nth-child(2) h4,
+  #afterShopping > div:last-child h4 {
+    font-size: 1.8em;
+    margin: 78px auto;
+  }
+  #afterShopping > div:nth-child(2) img {
+    margin: 80px auto;
+    width: 40%;
+  }
+  #afterShopping i {
+    font-size: 8em;
+    transform: translate(-50%, 30%);
+  }
+  #afterShopping #numberPurchase {
+    margin: 40px 80px;
+  }
+}
+@media screen and (max-width: 540px) {
+  #afterShopping > div:first-child {
+    top: 60%;
+  }
+  #afterShopping > div:first-child button {
+    height: 28vh;
+    margin: 30px 10px;
+    aspect-ratio: 1.8/1;
+    font-size: 1.5em;
+  }
+  #afterShopping > div:first-child button:first-child::after {
+    height: 3px;
+    bottom: 12px;
+  }
+  #afterShopping > div:first-child img {
+    margin-top: 10px;
+  }
+  #afterShopping > div:nth-child(2) h2,
+  #afterShopping > div:last-child h2 {
+    font-size: 2em;
+  }
+  #afterShopping > div:nth-child(2) p,
+  #afterShopping > div:last-child p {
+    font-size: 1.4em;
+  }
+  #afterShopping > div:nth-child(2) h4,
+  #afterShopping > div:last-child h4 {
+    font-size: 1.5em;
+    margin: 45px auto;
+  }
+  #afterShopping > div:nth-child(2) img {
+    margin: 45px auto;
+    width: 40%;
+  }
+  #afterShopping i {
+    font-size: 6em;
+    transform: translate(-50%, 40%);
+  }
+  #afterShopping #numberPurchase {
+    font-size: 50px;
+  }
+  #afterShopping #numberPurchase img {
+    width: 100px;
+  }
+}
+@media screen and (max-width: 430px) {
+  #afterShopping > div:first-child {
+    width: 90%;
+  }
+  #afterShopping > div:first-child button {
+    aspect-ratio: unset;
+  }
+  #afterShopping > div:nth-child(2) h2,
+  #afterShopping > div:last-child h2 {
+    font-size: 1.5em;
+  }
+  #afterShopping > div:nth-child(2) p,
+  #afterShopping > div:last-child p {
+    font-size: 18px;
+  }
+  #afterShopping > div:nth-child(2) img {
+    margin: 20px auto;
+    width: 40%;
+  }
+  #afterShopping i {
+    font-size: 3em;
+    transform: translate(-50%, 100%);
+  }
+}
 #inactivityPopup {
   margin: auto;
   position: absolute;
@@ -1048,4 +1444,32 @@ main {
   font-size: 1.5em;
   color: var(--accent-color);
   font-weight: 700;
+}
+
+@media screen and (max-width: 768px) {
+  #inactivityPopup {
+    width: calc(90% - 40px);
+    padding: 30px 20px;
+    border-radius: 10px;
+  }
+  #inactivityPopup p:first-child {
+    font-size: 2.5em;
+  }
+  #inactivityPopup button {
+    height: 70px;
+    border-radius: 15px;
+    font-size: 20px;
+  }
+  #inactivityPopup p:last-child {
+    font-size: 1.5em;
+  }
+}
+@media screen and (max-width: 540px) {
+  #inactivityPopup p:first-child {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  #inactivityPopup button {
+    height: 60px;
+  }
 }/*# sourceMappingURL=style.css.map */
